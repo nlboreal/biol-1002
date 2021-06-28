@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>BIOL 1002: Principles of Biology 1002</title>
+  <meta name="description" content="BIOL 1002: Principles of Biology 1002" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="BIOL 1002: Principles of Biology 1002" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="BIOL 1002: Principles of Biology 1002" />
+  
+  
+  
+
+<meta name="author" content="Jake Prosser, Yolanda Wiersma, Amy Hurford" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="#week1"><i class="fa fa-check"></i><b>1</b> Organizing and Managing Biological Data Set Part I</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BIOL 1002: Principles of Biology 1002</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">BIOL 1002: Principles of Biology 1002</h1>
+<p class="author"><em>Jake Prosser, Yolanda Wiersma, Amy Hurford</em></p>
+</div>
+<div id="week1" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Organizing and Managing Biological Data Set Part I</h1>
+<p><strong>Overview:</strong> In this week’s lab, we will be building on the R skills you learned in BIOL 1001. We will be focusing on manipulating and organizing data in tables, and learn a useful package called <a href="rdocumentation.org/packages/dplyr/versions/0.7.8">“dplyr”</a> (pronounced “d-plier”)</p>
+<p>You will need:</p>
+<ul>
+<li><p>RStudio on your computer OR have access to RStudio Cloud</p></li>
+<li><p>The following .csv files from Brightspace</p>
+<ul>
+<li><p>shrub-volume-data.csv</p></li>
+<li><p>gainesville-precip.csv</p></li>
+<li><p>surveys.csv</p></li>
+</ul></li>
+</ul>
+<p><strong>Before coming to lab</strong></p>
+<p>Install:</p>
+<ul>
+<li><a href="https://ahurford.github.io/quant-guide-all-courses/install.html#installing">R and RStudio</a> (if you have not already).</li>
+</ul>
+<p>Read:</p>
+<ul>
+<li><p><a href="https://ahurford.github.io/quant-guide-all-courses/rintro.html#workflow">Introduction to R - Workflow</a></p></li>
+<li><p><a href="https://ahurford.github.io/quant-guide-all-courses/rintro.html#working-directory">Introduction to R - Working directory</a></p></li>
+<li><p><a href="https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data">Entering and loading data - Loading or importing data</a></p></li>
+<li><p><a href="https://ahurford.github.io/quant-guide-all-courses/data-entry.html#inspecting-the-data">Entering and loading data - Inspecting the data</a></p></li>
+<li><p><a href="https://ahurford.github.io/quant-guide-all-courses/style.html">Best practices</a></p></li>
+<li><p><a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html">Handling data</a></p></li>
+</ul>
+<p><strong>Remember!</strong> The <u><a href="https://ahurford.github.io/quant-guide-all-courses/"><em>Quantitative Skills for Biology</em></a></u> manual you used in BIOL 1001 is still online (and updated regularly). If you need to review how to install and use R, please the manual! You can access it here: <a href="https://ahurford.github.io/quant-guide-all-courses/" class="uri">https://ahurford.github.io/quant-guide-all-courses/</a>.</p>
+<p><strong>NOTE:</strong> The exercise for this week’s lab is taken from the online course <a href="https://datacarpentry.org/semester-biology/schedule/">“Data Carpentry for Biologists”</a>. This week’s lab matches “Week 3: Data in Tables” in Dr. White’s online course. Remember that when using R, you have many ways to get <a href="https://ahurford.github.io/quant-guide-all-courses/help.html">help</a>. In addition, for this lab, if you are not sure how to execute a particular command, you can refer to the “Lecture” material on <a href="https://datacarpentry.org/semester-biology/lectures/R-data/">Dr. Ethan White’s website</a></u> and/or his <a href="https://datacarpentry.org/semester-biology/lectures/R-data/">instructional videos</a> that go with the “Data in Tables” lesson. The example data in the lecture material and videos is different from the data you use in the exercise.</p>
+<hr />
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
