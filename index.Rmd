@@ -51,7 +51,9 @@ Read:
 
 **Remember!** The <u>[*Quantitative Skills for Biology*](https://ahurford.github.io/quant-guide-all-courses/)</u> manual you used in BIOL 1001 is still online (and updated regularly). If you need to review how to install and use R, please the manual! You can access it here: <https://ahurford.github.io/quant-guide-all-courses/>.
 
-**NOTE:** The exercise for this week's lab is taken from the online course ["Data Carpentry for Biologists"](https://datacarpentry.org/semester-biology/schedule/). This week's lab matches "Week 3: Data in Tables" in Dr. White's online course. Remember that when using R, you have many ways to get [help](https://ahurford.github.io/quant-guide-all-courses/help.html). In addition, for this lab, if you are not sure how to execute a particular command, you can refer to the "Lecture" material on [Dr. Ethan White's website](https://datacarpentry.org/semester-biology/lectures/R-data/)</u> and/or his [instructional videos](https://datacarpentry.org/semester-biology/lectures/R-data/) that go with the "Data in Tables" lesson. The example data in the lecture material and videos is different from the data you use in the exercise.
+When using R, you have many ways to get [help](https://ahurford.github.io/quant-guide-all-courses/help.html).
+
+In addition, this week's lab is taken from "Week 3: Data in Tables" of the online course ["Data Carpentry for Biologists"](https://datacarpentry.org/semester-biology/schedule/) by Dr. Ethan White. If you are not sure how to execute a particular command, you can refer to the "Lecture" material on [Dr. White's website](https://datacarpentry.org/semester-biology/lectures/R-data/)</u> and/or his [instructional videos](https://datacarpentry.org/semester-biology/lectures/R-data/) that go with the "Data in Tables" lesson. The example data in the lecture material and videos is different from the data you use in the exercise.
 
 -----------------------------------------------------------
 
