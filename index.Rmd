@@ -1,0 +1,58 @@
+---
+title: "BIOL 1002: Principles of Biology 1002"
+author: "Jake Prosser, Yolanda Wiersma, Amy Hurford"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+  #bookdown::pdf_book: default
+---
+# Organizing and Managing Biological Data Set Part I {#week1}
+
+```{r, include=F, echo=F}
+# additional information not include in on the website
+library(dplyr)
+
+```
+
+**Overview:** In this week's lab, we will be building on the R skills you learned in BIOL 1001. We will be focusing on manipulating and organizing data in tables, and learn a useful package called ["dplyr"](rdocumentation.org/packages/dplyr/versions/0.7.8) (pronounced "d-plier")
+
+You will need:
+
+-   RStudio on your computer OR have access to RStudio Cloud
+
+-   The following .csv files from Brightspace
+
+    -   shrub-volume-data.csv
+
+    -   gainesville-precip.csv
+
+    -   surveys.csv
+
+**Before coming to lab**
+
+Install:
+
+- [R and RStudio](https://ahurford.github.io/quant-guide-all-courses/install.html#installing) (if you have not already).
+
+Read:
+
+-   [Introduction to R - Workflow](https://ahurford.github.io/quant-guide-all-courses/rintro.html#workflow)
+
+-  [Introduction to R - Working directory](https://ahurford.github.io/quant-guide-all-courses/rintro.html#working-directory)
+
+-   [Entering and loading data - Loading or importing data](https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data)
+
+-   [Entering and loading data - Inspecting the data](https://ahurford.github.io/quant-guide-all-courses/data-entry.html#inspecting-the-data)
+
+- [Best practices](https://ahurford.github.io/quant-guide-all-courses/style.html)
+
+- [Handling data](https://ahurford.github.io/quant-guide-all-courses/handling-data.html)
+
+**Remember!** The <u>[*Quantitative Skills for Biology*](https://ahurford.github.io/quant-guide-all-courses/)</u> manual you used in BIOL 1001 is still online (and updated regularly). If you need to review how to install and use R, please the manual! You can access it here: <https://ahurford.github.io/quant-guide-all-courses/>.
+
+**NOTE:** The exercise for this week's lab is taken from the online course ["Data Carpentry for Biologists"](https://datacarpentry.org/semester-biology/schedule/). This week's lab matches "Week 3: Data in Tables" in Dr. White's online course. Remember that when using R, you have many ways to get [help](https://ahurford.github.io/quant-guide-all-courses/help.html). In addition, for this lab, if you are not sure how to execute a particular command, you can refer to the "Lecture" material on [Dr. Ethan White's website](https://datacarpentry.org/semester-biology/lectures/R-data/)</u> and/or his [instructional videos](https://datacarpentry.org/semester-biology/lectures/R-data/) that go with the "Data in Tables" lesson. The example data in the lecture material and videos is different from the data you use in the exercise.
+
+-----------------------------------------------------------
+
+
