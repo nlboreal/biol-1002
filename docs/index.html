@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 </head>
@@ -68,7 +132,18 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="#week1"><i class="fa fa-check"></i><b>1</b> Organizing and Managing Biological Data Set Part I</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="#managing-biological-data"><i class="fa fa-check"></i><b>1</b> Managing Biological Data</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="#lab1"><i class="fa fa-check"></i><b>1.1</b> Lab 1: Data in Tables</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#before-coming-to-lab"><i class="fa fa-check"></i>Before coming to lab</a></li>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="#shrub-volume-data-basic"><i class="fa fa-check"></i><b>1.1.1</b> Shrub Volume Data Basic</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="#code-shuffle"><i class="fa fa-check"></i><b>1.1.2</b> Code Shuffle</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="#bird-banding"><i class="fa fa-check"></i><b>1.1.3</b> Bird Banding</a></li>
+<li class="chapter" data-level="1.1.4" data-path="index.html"><a href="#portal-data-manipulation"><i class="fa fa-check"></i><b>1.1.4</b> Portal Data Manipulation</a></li>
+<li class="chapter" data-level="1.1.5" data-path="index.html"><a href="#portal-data-manipulation-pipes"><i class="fa fa-check"></i><b>1.1.5</b> Portal Data Manipulation Pipes</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -90,9 +165,11 @@
 <h1 class="title">BIOL 1002: Principles of Biology 1002</h1>
 <p class="author"><em>Jake Prosser, Yolanda Wiersma, Amy Hurford</em></p>
 </div>
-<div id="week1" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Organizing and Managing Biological Data Set Part I</h1>
-<p><strong>Overview:</strong> In this week’s lab, we will be building on the R skills you learned in BIOL 1001. We will be focusing on manipulating and organizing data in tables, and learn a useful package called <a href="rdocumentation.org/packages/dplyr/versions/0.7.8">“dplyr”</a> (pronounced “d-plier”)</p>
+<div id="managing-biological-data" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Managing Biological Data</h1>
+<div id="lab1" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Lab 1: Data in Tables</h2>
+<p><strong>Overview:</strong> In this week’s lab, we will be building on the R skills you learned in BIOL 1001. We will be focusing on manipulating and organizing data in tables, and learn a useful package called <a href="https://dplyr.tidyverse.org/">dplyr</a> (pronounced “d-plier”)</p>
 <p>You will need:</p>
 <ul>
 <li><p>RStudio on your computer OR have access to RStudio Cloud</p></li>
@@ -103,7 +180,8 @@
 <li><p>surveys.csv</p></li>
 </ul></li>
 </ul>
-<p><strong>Before coming to lab</strong></p>
+<div id="before-coming-to-lab" class="section level3 unnumbered">
+<h3>Before coming to lab</h3>
 <p>Install:</p>
 <ul>
 <li><a href="https://ahurford.github.io/quant-guide-all-courses/install.html#installing">R and RStudio</a> (if you have not already).</li>
@@ -117,11 +195,122 @@
 <li><p><a href="https://ahurford.github.io/quant-guide-all-courses/style.html">Best practices</a></p></li>
 <li><p><a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html">Handling data</a></p></li>
 </ul>
-<p><strong>Remember!</strong> The <u><a href="https://ahurford.github.io/quant-guide-all-courses/"><em>Quantitative Skills for Biology</em></a></u> manual you used in BIOL 1001 is still online (and updated regularly). If you need to review how to install and use R, please the manual! You can access it here: <a href="https://ahurford.github.io/quant-guide-all-courses/" class="uri">https://ahurford.github.io/quant-guide-all-courses/</a>.</p>
+<p><strong>Remember!</strong> The <a href="https://ahurford.github.io/quant-guide-all-courses/"><em>Quantitative Skills for Biology</em></a> manual you used in BIOL 1001 is still online (and updated regularly). If you need to review how to install and use R, please the manual! You can access it here: <a href="https://ahurford.github.io/quant-guide-all-courses/" class="uri">https://ahurford.github.io/quant-guide-all-courses/</a>.</p>
 <p>When using R, you have many ways to get <a href="https://ahurford.github.io/quant-guide-all-courses/help.html">help</a>.</p>
-<p>In addition, this week’s lab is taken from “Week 3: Data in Tables” of the online course <a href="https://datacarpentry.org/semester-biology/schedule/">“Data Carpentry for Biologists”</a> by Dr. Ethan White. If you are not sure how to execute a particular command, you can refer to the “Lecture” material on <a href="https://datacarpentry.org/semester-biology/lectures/R-data/">Dr. White’s website</a></u> and/or his <a href="https://datacarpentry.org/semester-biology/lectures/R-data/">instructional videos</a> that go with the “Data in Tables” lesson. The example data in the lecture material and videos is different from the data you use in the exercise.</p>
+<p>In addition, this week’s lab is taken from <em>Week 3: Data in Tables</em> of the online course <a href="https://datacarpentry.org/semester-biology/schedule/">Data Carpentry for Biologists</a> by Dr. Ethan White. If you are not sure how to execute a particular command, you can refer to the <em>Lecture</em> material on <a href="https://datacarpentry.org/semester-biology/lectures/R-data/">Dr. White’s website</a></u> and/or his <a href="https://datacarpentry.org/semester-biology/lectures/R-data/">instructional videos</a> that go with the <em>Data in Tables</em> lesson. The example data in the lecture material and videos is different from the data you use in the exercise.</p>
 <hr />
+<p><strong>After the following lab you should be able to:</strong></p>
+<ul>
+<li>install packages and load data,</li>
+<li>understand the data manipulation functions of dplyr,</li>
+<li>and execute a simple import and data filter scenario</li>
+</ul>
+<p><strong>TO HAND-IN</strong>
+You are to hand in a <code>.R</code> file, formatted as shown in <a href="https://ahurford.github.io/quant-guide-all-courses/style.html#template">Best Practices - Template</a>, where the lines of code to produce the output asked for under <strong>HAND-IN</strong> are produced in the order they are asked for.</p>
+<p><strong>Getting started</strong></p>
+<p>Open a new R Script and download the <code>.csv</code> files from Brightspace. You may wish to review <a href="https://ahurford.github.io/quant-guide-all-courses/style.html">best practices</a> (for guidance on how to organize your files) and set your <a href="https://ahurford.github.io/quant-guide-all-courses/rintro.html#working-directory">working directory</a>.</p>
+<p>Install and load the <a href="https://dplyr.tidyverse.org/">dplyr</a> R package.</p>
+<p>If you’re unsure how to install a package, see <a href="https://ahurford.github.io/quant-guide-all-courses/rintro.html#r-packages">R Packages</a> in the <a href="https://ahurford.github.io/quant-guide-all-courses/">Quantitative Skills for Biology</a> manual.</p>
+<p>If you do not complete these steps, you will not be able to complete the <strong>HAND IN</strong> questions.</p>
+</div>
+<div id="shrub-volume-data-basic" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Shrub Volume Data Basic</h3>
+<p>After writing the command in your R script to install <code>dplyr</code>, next <a href="https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data">import the data</a>. If you use the programmatic way (i.e., command line), your command may look something like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ShrubData <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;lab_data/shrub-volume-data.csv&quot;</span>)</span></code></pre></div>
+<p>The exact command will depend on where you saved <code>shrub-volume-data.csv</code> and how you have set your <a href="https://ahurford.github.io/quant-guide-all-courses/rintro.html#working-directory">working directory</a>. You may call your dataset <code>ShrubData</code> or give it a different name.</p>
+<p>You will need this command in your R script or you will not be able to complete the <strong>HAND-IN</strong> questions that appear next.</p>
+<p><strong>HAND-IN. [Q1]</strong> Add a line of code to your R Script, where you use the <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#selecting-a-column"><code>select()</code></a> function to select the <code>site</code> and <code>experiment</code> columns of <code>shrub-volume-data.csv</code> (note: that above we named this file, <code>ShrubData</code>: you many have given it a different name). To learn how to use the <code>select()</code> function click on the <code>select()</code> link above.</p>
+<p><strong>HAND IN. [Q2]</strong> Add a line of code to your R Script, where you use the <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#adding-a-new-column"><code>mutate()</code></a> function to create a column called <code>area</code>. (Reminder, the area of a rectangle is equal to the length * width).</p>
+<p><strong>HAND IN. [Q3]</strong> Add a commented out line of code to your R Script, that answers the following question: does the <code>arrange()</code> function: (a) reorder all the rows in <code>ShrubData</code> based on the ascending order of the value in the <code>width</code> column, or (b) reorder only the <code>width</code> column?</p>
+<p><strong>HAND IN. [Q4]</strong> Add a line of code to your R Script, where you use the <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#sorting-the-data"><code>arrange()</code></a> function to sort the data based on the <code>length</code> column.</p>
+<p><strong>HAND IN. [Q5]</strong> Add a line of code to your R Script, where you use the <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data"><code>filter()</code></a> function, filter the data to only include plants with length longer than 5 cm.</p>
+<p><strong>HAND IN. [Q6]</strong> Add a line of code to your R Script, where you use the <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data"><code>filter()</code></a> function to show all entries with plants with length greater then 4 cm and width greater then 2cm.</p>
+<p><strong>HAND IN. [Q7]</strong> Add a line of code to your R Script, where you use the <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data"><code>filter()</code></a> function, filter the data to only include plants from experiment 1 <em>or</em> 2.</p>
+<p><strong>HAND IN. [Q8]</strong> Add a line of code to your R Script, where you use the <code>filter</code> function, <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#removing-na-entries-in-data">remove the rows with <code>NA</code></a> from your data.</p>
+</div>
+<div id="code-shuffle" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Code Shuffle</h3>
+<p>In this section, we are interested in understanding the monthly variation in precipitation in Gainesville, FL. We’ll use some data from the <a href="https://www.ncdc.noaa.gov/">NOAA National Climatic Data Center</a>.</p>
+<p>Each row of the data is a year (from 1961-2013) and each column is a month (January - December).</p>
+<p>In this section, we want you to</p>
+<ul>
+<li><p>import the <code>weather_data</code> from Brightspace</p></li>
+<li><p>calculate the average precipitation in each month across years</p></li>
+<li><p>plot the monthly averages as a simple line plot</p></li>
+</ul>
+<p>We can use the <code>colMeans</code> function to take the mean of each column within a data frame. <strong>We will be demonstrating this using the <code>ShrubData</code> but you will use the weather data.</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>col_means <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(ShrubData)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># To show the column means, you will need to use the print() command</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(col_means)</span></code></pre></div>
+<pre><code>##       site experiment     length      width     height 
+##   2.500000   2.000000   2.558333         NA   4.550000</code></pre>
+<p>We can see that the means for each column was calculated. <strong>HAND IN</strong> Using the <code>weather_data</code>, calculate the mean precipitation for each month and produce a simple line plot. You will <strong>hand in both</strong> the R code and the plot. Your plot should resemble the line plot below. <strong>You will need to change the axis titles.</strong></p>
+<p><img src="book_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="bird-banding" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Bird Banding</h3>
+<p>The number of birds banded at a series of sampling sites has been counted by your field crew and entered into the following vector.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>number_of_birds <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">28</span>, <span class="dv">32</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">22</span>, <span class="dv">30</span>, <span class="dv">19</span>, <span class="dv">145</span>, <span class="dv">27</span>, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                     <span class="dv">36</span>, <span class="dv">25</span>, <span class="dv">9</span>, <span class="dv">38</span>, <span class="dv">21</span>, <span class="dv">12</span>, <span class="dv">122</span>, <span class="dv">87</span>, <span class="dv">36</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">55</span>, <span class="dv">62</span>, <span class="dv">98</span>, <span class="dv">32</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                     <span class="dv">900</span>, <span class="dv">33</span>, <span class="dv">14</span>, <span class="dv">39</span>, <span class="dv">56</span>, <span class="dv">81</span>, <span class="dv">29</span>, <span class="dv">38</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">143</span>, <span class="dv">37</span>, <span class="dv">98</span>, <span class="dv">77</span>, <span class="dv">92</span>, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                     <span class="dv">83</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">51</span>, <span class="dv">17</span>, <span class="dv">22</span>, <span class="dv">37</span>, <span class="dv">48</span>, <span class="dv">38</span>, <span class="dv">91</span>, <span class="dv">73</span>, <span class="dv">54</span>, <span class="dv">46</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                     <span class="dv">102</span>, <span class="dv">273</span>, <span class="dv">600</span>, <span class="dv">10</span>, <span class="dv">11</span>)</span></code></pre></div>
+<p>Counts are entered in order and sites are numbered starting at one. Using the following vector, answer the following questions and print the results on the screen. The following functions maybe useful: <code>length()</code>, <code>max()</code>, <code>min()</code>, <code>sum()</code>, and <code>mean()</code>.</p>
+<p><strong>Function Overview</strong></p>
+<ul>
+<li><p><code>max()</code> indicates the maximum value in a vector</p></li>
+<li><p><code>min()</code> indicates the minimum value in a vector</p></li>
+<li><p><code>length()</code> indicates the total number of rows, or length of entries in a vector</p></li>
+<li><p><code>sum()</code> adds or takes the sum of all values in a column</p></li>
+<li><p><code>mean()</code> calculates the mean for a vector</p></li>
+</ul>
+<p><strong>HAND IN</strong> Answer the following using the commands provided above.</p>
+<ol style="list-style-type: decimal">
+<li><p>How many sites are there?</p></li>
+<li><p>What is the total number of birds counted across all of the sites?</p></li>
+<li><p>What is the smallest number of birds counted?</p></li>
+<li><p>What is the largest number of birds counted?</p></li>
+<li><p>What is the average number of birds seen at a site?</p></li>
+<li><p>How many birds were counted at the last site? Have the computer choose the last site automatically in some way, not manually entering its position. Do you know a function that will give you a position of the last value? (since positions start at 1 position of the last value in a vector is the same as its length)</p></li>
+<li><p>How many birds were counted at site 42?</p></li>
+</ol>
+</div>
+<div id="portal-data-manipulation" class="section level3" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Portal Data Manipulation</h3>
+<p>Download a copy of the <code>survey data</code> from Brightspace and load it into R using <code>read.csv()</code>.</p>
+<p><strong>HAND IN</strong> Answer the following.</p>
+<ol style="list-style-type: decimal">
+<li><p>Using the <code>select()</code> function create a new data frame called <code>survey_new</code> that only contains the columns <code>year</code>, <code>month</code>, <code>day</code>, and <code>species_id</code> in that order.</p></li>
+<li><p>Using the <code>mutate()</code>, <code>select()</code>, <code>filter()</code>, and <code>!is.na()</code> functions to create a new data frame with only <code>year()</code>, <code>species_id</code> and <code>weight()</code> in <strong>kilograms of each individual</strong>. The weight in the table is given in grams, so you will need to create a new column or convert weight into kilograms. (<em>Recall that 1 g = 0.001 kg.</em>)</p></li>
+<li><p>Use the <code>filter()</code> function, print only the rows in the data frame for the species ID =<code>SH</code>.</p></li>
+</ol>
+</div>
+<div id="portal-data-manipulation-pipes" class="section level3" number="1.1.5">
+<h3><span class="header-section-number">1.1.5</span> Portal Data Manipulation Pipes</h3>
+<p>Using the <code>survey data</code> we will be using the <code>%&gt;%</code> pipe operations to manipulate the data. The pipe operation can be used to easy combine previous functions.</p>
+<p>The pipe function allows for separate functions to be combined. For example, instead of creating two data frames where one removes <code>na</code> entries and the other adds new columns, the pipe operation combines them. Below is an example, I will create a new data frame with only <code>month()</code>, <code>plot_id()</code> and a new column <code>wight_mil</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>new_pipe_survey_df <span class="ot">&lt;-</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>          survey <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(weight)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">mutate</span>(<span class="at">weight_mil=</span>weight<span class="sc">*</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>            <span class="fu">select</span>(month, plot_id, weight_mil)</span></code></pre></div>
+<p>You can see that the same functions are used above in section <strong>2.1.4 Portable Data Manipulation</strong>, but rather than listing each command individually, the functions are connected via the <code>%&gt;%</code> pipe operation.</p>
+<p><strong>HAND IN:</strong> Using the <code>%&gt;%</code> operation, answer the following questions.</p>
+<ol style="list-style-type: decimal">
+<li><p>Using the <code>mutate()</code>, <code>select()</code>, <code>filter()</code>, and/or <code>!is.na()</code> functions to create a new data frame with only <code>year()</code>, <code>species_id</code> and <code>weight()</code> in <strong>kilograms of each individual</strong>.</p></li>
+<li><p>Use the <code>filter()</code> and <code>select()</code> to get the <code>year</code>, <code>month</code>, <code>day</code>, <code>weight</code> in kg, and <code>species_id</code> columns for all of the rows in the data frame where <code>species_id</code> is <code>SH</code>. Use the <code>head()</code> command to print the top of the data frame.</p></li>
+</ol>
+<pre><code>##   year month day weight_kg species_id
+## 1 1978    11   4      0.89         SH
+## 2 1982     5  21      1.06         SH
+## 3 1982     6  29      0.52         SH
+## 4 1986    10   4      0.55         SH
+## 5 1987     7  26      0.77         SH
+## 6 1987     8  26      0.78         SH</code></pre>
+<p>Above is the <code>head()</code> print out of the <code>%&gt;%</code> piped operation. Does it look similar to yours?</p>
 
+</div>
+</div>
 </div>
             </section>
 

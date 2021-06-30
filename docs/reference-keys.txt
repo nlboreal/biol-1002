@@ -1,1 +1,7 @@
-week1
+managing-biological-data
+lab1
+shrub-volume-data-basic
+code-shuffle
+bird-banding
+portal-data-manipulation
+portal-data-manipulation-pipes
