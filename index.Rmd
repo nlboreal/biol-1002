@@ -106,18 +106,18 @@ You will need this command in your R script or you will not be able to complete 
 
 **HAND IN. [Q7]** Add a line of code to your R Script, where you use the [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) function, filter the data to only include plants from experiment 1 *or* 2.
 
-**HAND IN. [Q8]** Add a line of code to your R Script, where you use the `filter` function, [remove the rows with `NA`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#removing-na-entries-in-data) from your data.
+**HAND IN. [Q8]** Add a line of code to your R Script, where you use the `filter()` function, [remove the rows with `NA`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#removing-na-entries-in-data) from your data.
 
 
-### Code Shuffle
+### Mean maximum monthly temperature in Bay D'Espoir
 
-In this section, we are interested in understanding the monthly variation in precipitation in Gainesville, FL. We'll use some data from the [NOAA National Climatic Data Center](https://www.ncdc.noaa.gov/).
+In this section, we are interested in understanding the monthly variation in maximum temperature in [Bay D'Espoir](https://climate.weather.gc.ca/climate_data/daily_data_e.html?hlyRange=%7C&dlyRange=1965-03-01%7C1965-04-30&mlyRange=1965-01-01%7C1965-12-01&StationID=6565&Prov=NL&urlExtension=_e.html&searchType=stnProv&optLimit=yearRange&StartYear=1840&EndYear=2021&selRowPerPage=25&Line=16&Month=4&Day=29&lstProvince=NL&timeframe=2&Year=1965). These data are originally sourced from [Environment Canada](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html).
 
-Each row of the data is a year (from 1961-2013) and each column is a month (January - December).
+You can learn about the data by reading the metadata file available on the course Brightspace.
 
 In this section, we want you to 
 
-- import the `weather_data` from Brightspace 
+- import the `max_temperature_data` from Brightspace 
 
 - calculate the average precipitation in each month across years 
 
@@ -126,7 +126,7 @@ In this section, we want you to
 
 
 ```{r, include=F}
-weather.data <- read.csv(file = "lab_data/gainesville-precip.csv", header=F)
+weather.data <- read.csv(file = "lab_data/gainesville-precip.csv", header = F)
 monthly_mean_ppt <- colMeans(weather.data)
 ```
 

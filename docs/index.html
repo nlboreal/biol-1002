@@ -170,16 +170,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="lab1" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Lab 1: Data in Tables</h2>
 <p><strong>Overview:</strong> In this week’s lab, we will be building on the R skills you learned in BIOL 1001. We will be focusing on manipulating and organizing data in tables, and learn a useful package called <a href="https://dplyr.tidyverse.org/">dplyr</a> (pronounced “d-plier”)</p>
-<p>You will need:</p>
-<ul>
-<li><p>RStudio on your computer OR have access to RStudio Cloud</p></li>
-<li><p>The following .csv files from Brightspace</p>
-<ul>
-<li><p>shrub-volume-data.csv</p></li>
-<li><p>gainesville-precip.csv</p></li>
-<li><p>surveys.csv</p></li>
-</ul></li>
-</ul>
 <div id="before-coming-to-lab" class="section level3 unnumbered">
 <h3>Before coming to lab</h3>
 <p>Install:</p>
@@ -208,9 +198,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>TO HAND-IN</strong>
 You are to hand in a <code>.R</code> file, formatted as shown in <a href="https://ahurford.github.io/quant-guide-all-courses/style.html#template">Best Practices - Template</a>, where the lines of code to produce the output asked for under <strong>HAND-IN</strong> are produced in the order they are asked for.</p>
 <p><strong>Getting started</strong></p>
-<p>Open a new R Script and download the <code>.csv</code> files from Brightspace. You may wish to review <a href="https://ahurford.github.io/quant-guide-all-courses/style.html">best practices</a> (for guidance on how to organize your files) and set your <a href="https://ahurford.github.io/quant-guide-all-courses/rintro.html#working-directory">working directory</a>.</p>
-<p>Install and load the <a href="https://dplyr.tidyverse.org/">dplyr</a> R package.</p>
-<p>If you’re unsure how to install a package, see <a href="https://ahurford.github.io/quant-guide-all-courses/rintro.html#r-packages">R Packages</a> in the <a href="https://ahurford.github.io/quant-guide-all-courses/">Quantitative Skills for Biology</a> manual.</p>
+<ul>
+<li><p>Review <a href="https://ahurford.github.io/quant-guide-all-courses/style.html">best practices</a> for guidance on how to organize your files.</p></li>
+<li><p>Download, to an appropriate folder, the following .csv files from Brightspace:</p>
+<ul>
+<li><p>shrub-volume-data.csv</p></li>
+<li><p>gainesville-precip.csv</p></li>
+<li><p>surveys.csv</p></li>
+</ul></li>
+<li><p>Open and save a new R Script. Complete the information at the start of the R Script <a href="https://ahurford.github.io/quant-guide-all-courses/style.html#template">template</a>.</p></li>
+<li><p>Set your <a href="https://ahurford.github.io/quant-guide-all-courses/rintro.html#working-directory">working directory</a></p></li>
+<li><p>Install and load the <a href="https://dplyr.tidyverse.org/">dplyr</a> R package.</p></li>
+</ul>
+<p>If you’re unsure how to install a package, see <a href="https://ahurford.github.io/quant-guide-all-courses/rintro.html#r-packages">R Packages</a>.</p>
+<p>Throughout these instructions are links to the relevant sections in the <a href="https://ahurford.github.io/quant-guide-all-courses/"><em>Quantitative Skills for Biology</em></a>.</p>
 <p>If you do not complete these steps, you will not be able to complete the <strong>HAND IN</strong> questions.</p>
 </div>
 <div id="shrub-volume-data-basic" class="section level3" number="1.1.1">
