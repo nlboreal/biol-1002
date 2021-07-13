@@ -50,11 +50,11 @@ In addition, this week's lab is taken from _Week 3: Data in Tables_ of the onlin
 **After the following lab you should be able to:**
 
 - install packages and load data,
--   understand the data manipulation functions of dplyr,
+-   understand the data manipulation functions of `dplyr`,
 -   and execute a simple import and data filter scenario
 
 **TO HAND-IN**
-You are to hand in a `.R` file, formatted as shown in [Best  Practices - Template](https://ahurford.github.io/quant-guide-all-courses/style.html#template), where the lines of code to produce the output asked for under **HAND-IN** are produced in the order they are asked for.
+You are to hand in a `.R` file, formatted as shown in [Best  Practices - Template](https://ahurford.github.io/quant-guide-all-courses/style.html#template) where the lines of code to produce the output asked for under **HAND-IN** are produced in the order they are asked for.
 
 **Getting started**
 
@@ -62,9 +62,9 @@ You are to hand in a `.R` file, formatted as shown in [Best  Practices - Templat
 
 - Download, to an appropriate folder, the following .csv files from Brightspace:
 
-    -   shrub-volume-data.csv
+    -   shrub-volume.csv
 
-    -   gainesville-precip.csv
+    -   max-temperature.csv
 
     -   surveys.csv
 
@@ -76,56 +76,45 @@ You are to hand in a `.R` file, formatted as shown in [Best  Practices - Templat
 
 If you're unsure how to install a package, see [R Packages](https://ahurford.github.io/quant-guide-all-courses/rintro.html#r-packages).
 
-Throughout these instructions are links to the relevant sections in the [*Quantitative Skills for Biology*](https://ahurford.github.io/quant-guide-all-courses/).
+Throughout these instructions are links to the relevant sections in [*Quantitative Skills for Biology*](https://ahurford.github.io/quant-guide-all-courses/).
 
 If you do not complete these steps, you will not be able to complete the **HAND IN** questions.
 
 ### Shrub Volume Data Basic
 
-After writing the command in your R script to install `dplyr`, next [import the data](https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data). If you use the programmatic way (i.e., command line), your command may look something like this:
+After writing the command `library(dplyr)` in your R script to attach `dplyr`, next [import the data](https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data). If you use the programmatic way (i.e., command line), your command may look something like this:
 
 ```{r}
-ShrubData <- read.csv("lab_data/shrub-volume-data.csv")
+ShrubData <- read.csv("lab_data/shrub-volume.csv")
 ```
 
 The exact command will depend on where you saved `shrub-volume-data.csv` and how you have set your [working directory](https://ahurford.github.io/quant-guide-all-courses/rintro.html#working-directory). You may call your dataset `ShrubData` or give it a different name.
 
 You will need this command in your R script or you will not be able to complete the **HAND-IN** questions that appear next.
 
-**HAND-IN. [Q1]**  Add a line of code to your R Script, where you use the [`select()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#selecting-a-column) function to select the `site` and `experiment` columns of `shrub-volume-data.csv` (note: that above we named this file, `ShrubData`: you many have given it a different name). To learn how to use the `select()` function click on the `select()` link above.
+**HAND-IN. [Q1]**  Add a line of code to your R script where you use the [`select()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#selecting-a-column) function to select the `site` and `experiment` columns of `shrub-volume.csv` (note: that above we named this file, `ShrubData`: you many have given it a different name). To learn how to use the `select()` function click on the `select()` link above.
 
-**HAND IN. [Q2]** Add a line of code to your R Script, where you use the [`mutate()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#adding-a-new-column) function to create a column called `area`. (Reminder, the area of a rectangle is equal to the length * width).
+**HAND IN. [Q2]** Add a line of code to your R script where you use the [`mutate()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#adding-a-new-column) function to create a column called `area`. (Reminder, the area of a rectangle is equal to the length * width).
 
-**HAND IN. [Q3]** Add a commented out line of code to your R Script, that answers the following question: does the `arrange()` function: (a) reorder all the rows in `ShrubData` based on the ascending order of the value in the `width` column, or (b) reorder only the `width` column?
+**HAND IN. [Q3]** Add a commented out line of code to your R script that answers the following question: does the `arrange()` function: (a) reorder all the rows in `ShrubData` based on the ascending order of the value in the `width` column, or (b) reorder only the `width` column? (for example, write `# Q3. (a)` in your R script if your answer is (a).)
 
-**HAND IN. [Q4]** Add a line of code to your R Script, where you use the [`arrange()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#sorting-the-data) function to sort the data based on the `length` column.
+**HAND IN. [Q4]** Add a line of code to your R script where you use the [`arrange()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#sorting-the-data) function to sort the data based on the `length` column.
 
-**HAND IN. [Q5]** Add a line of code to your R Script, where you use the [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) function, filter the data to only include plants with length longer than 5 cm.
+**HAND IN. [Q5]** Add a line of code to your R script, where you use the [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) function to filter the data to only include plants with length longer than 5 cm.
 
-**HAND IN. [Q6]** Add a line of code to your R Script, where you use the [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) function to show all entries with plants with length greater then 4 cm and width greater then 2cm.
+**HAND IN. [Q6]** Add a line of code to your R script, where you use the [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) function to show all entries with plants with length greater than 4 cm and width greater then 2cm.
 
-**HAND IN. [Q7]** Add a line of code to your R Script, where you use the [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) function, filter the data to only include plants from experiment 1 *or* 2.
+**HAND IN. [Q7]** Add a line of code to your R script, where you use the [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) function to filter the data to only include plants from experiment 1 *or* 2.
 
-**HAND IN. [Q8]** Add a line of code to your R Script, where you use the `filter()` function, [remove the rows with `NA`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#removing-na-entries-in-data) from your data.
+**HAND IN. [Q8]** Add a line of code to your R script  where you use the `filter()` function [remove the rows with `NA`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#removing-na-entries-in-data) from your data.
 
 
 ### Mean maximum monthly temperature in Bay D'Espoir
 
-In this section, we want you to use `max_temperature_data.csv` which you have already downloaded from Brightspace: 
-
-- calculate the average precipitation in each month across years 
-
-- plot the monthly averages as a simple line plot
+In this section, we want you to use `max-temperature.csv` which you have already downloaded from Brightspace.
 
 
-```{r, include=F}
-temperature.data <- read.csv(file = "lab_data/max_temperature_data.csv")
-monthly_temp <- group_by(temperature.data, Month) %>% summarise(mean = mean(Max.Temp.C))
-monthly_temp = as.data.frame(monthly_temp)
-```
-
-
-> **Metadata Overview** The data are from [Bay D'Espoir GEN STN](https://climate.weather.gc.ca/climate_data/daily_data_e.html?hlyRange=%7C&dlyRange=1967-11-01%7C2019-11-18&mlyRange=1967-01-01%7C2006-02-01&StationID=6567&Prov=NL&urlExtension=_e.html&searchType=stnProv&optLimit=yearRange&StartYear=1840&EndYear=2021&selRowPerPage=25&Line=18&Month=11&Day=30&lstProvince=NL&timeframe=2&Year=2019). and are originally sourced from [Environment and Climate Change Canada](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html). Bay D'Espoir station 1 is located in Newfoundland at -55.48 W Longitude and 47.59 N latitude. The station Climate ID number is 8400413 . The dataset provided, `max_temperature_data.csv`, is a cleaned version of the data download.
+> **Metadata Overview** The data are from [Bay D'Espoir GEN STN](https://climate.weather.gc.ca/climate_data/daily_data_e.html?hlyRange=%7C&dlyRange=1967-11-01%7C2019-11-18&mlyRange=1967-01-01%7C2006-02-01&StationID=6567&Prov=NL&urlExtension=_e.html&searchType=stnProv&optLimit=yearRange&StartYear=1840&EndYear=2021&selRowPerPage=25&Line=18&Month=11&Day=30&lstProvince=NL&timeframe=2&Year=2019). and are originally sourced from [Environment and Climate Change Canada](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html). Bay D'Espoir general station is located in Newfoundland at -55.48 W Longitude and 47.59 N latitude. The station Climate ID number is 8400413 . The dataset provided, `max-temperature.csv`, is a cleaned version of the data download.
 >
 > **Columns in the data frame**
 >
@@ -138,20 +127,24 @@ monthly_temp = as.data.frame(monthly_temp)
 > Column 4: Max.Temp.C - The maximum temperature recorded on that day in degrees Celcius.
 
 
+**HAND IN. [Q9]** In your R Script, indicate with a comment that you are starting a new section `## Maximum monthly temperature`. Add lines of code to your R Script where you: 
 
-We can use the `colMeans` function to take the mean of each column within a data frame. **We will be demonstrating this using the `ShrubData` but you will use the weather data.**
+- [load](https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data) the data file: `max_temperature_data.csv`
 
-```{r}
-col_means <- colMeans(ShrubData)
-# To show the column means, you will need to use the print() command
-print(col_means)
+- remove the `NA`s from the dataset using [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#removing-na-entries-in-data). 
+
+- calculate the mean maximum temperature in each month across years using `group_by()` and `summarize()` as described in [Group summary](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#group-summary)
+
+- plot the monthly maximum temperature using [`plot()`](https://ahurford.github.io/quant-guide-all-courses/graph.html#scatter-plots-with-plotxy).
+
+
+```{r, include=F}
+temperature.data <- read.csv(file = "lab_data/max-temperature.csv")
+monthly_temp <- filter(temperature.data, !is.na(Max.Temp.C)) %>% group_by(Month) %>% summarise(mean = mean(Max.Temp.C))
+plot(monthly_temp$Month,monthly_temp$mean)
+monthly_temp = as.data.frame(monthly_temp)
 ```
 
-We can see that the means for each column was calculated. **HAND IN** Using the `weather_data`, calculate the mean precipitation for each month and produce a simple line plot. You will **hand in both** the R code and the plot. Your plot should resemble the line plot below. **You will need to change the axis titles.**
-
-```{r, eval=FALSE}
-plot(monthly_temp$Month,monthly_temp$mean, type = "l", xlab = "Month", ylab ="Mean Precipitation (ml)")
-```
 
 ### Bird Banding
 
@@ -164,37 +157,29 @@ number_of_birds <- c(28, 32, 1, 0, 10, 22, 30, 19, 145, 27,
                      83, 34, 98, 40, 45, 51, 17, 22, 37, 48, 38, 91, 73, 54, 46,
                      102, 273, 600, 10, 11)
 ```
-Counts are entered in order and sites are numbered starting at one. Using the following vector, answer the following questions and print the results on the screen. The following functions maybe useful: `length()`, `max()`, `min()`, `sum()`, and `mean()`.
+Counts are entered in order and sites are numbered starting at one.
 
 
-**Function Overview**
+In your R Script, indicate with a comment that you are starting a new section `## Bird banding`. Review the section [Useful functions](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#useful-functions).
+ 
+ - Add lines of code to your R Script where you provide the commands to answer the questions below.
+ 
+ - In a comment after each line of code for each question, write a comment giving
+ the numerical answer, i.e., `# the number of sites is 10.`
 
--   `max()` indicates the maximum value in a vector
+**HAND IN. [Q10]** How many sites are there?
 
--   `min()` indicates the minimum value in a vector
+**HAND IN. [Q11]** What is the total number of birds counted across all of the sites?
 
--   `length()` indicates the total number of rows, or length of entries in a vector
+**HAND IN. [Q12]**  What is the smallest number of birds counted?
 
--   `sum()` adds or takes the sum of all values in a column
+**HAND IN. [Q13]** What is the largest number of birds counted?
 
--   `mean()` calculates the mean for a vector
+**HAND IN. [Q14]**  What is the mean number of birds seen at a site?
 
+**HAND IN. [Q15]** How many birds were counted at the last site? Have the computer choose the last site automatically in some way, not manually entering its position as a number. Do you know a function that will give you a position of the last value? (since positions start at 1 position of the last value in a vector is the same as its length).
 
-**HAND IN** Answer the following using the commands provided above. 
-
-1) How many sites are there?
-
-2)  What is the total number of birds counted across all of the sites?
-
-3)  What is the smallest number of birds counted?
-
-4)  What is the largest number of birds counted?
-
-5)  What is the average number of birds seen at a site?
-
-6)  How many birds were counted at the last site? Have the computer choose the last site automatically in some way, not manually entering its position. Do you know a function that will give you a position of the last value? (since positions start at 1 position of the last value in a vector is the same as its length)
-
-7)  How many birds were counted at site 42?
+**HAND IN. [Q16]** How many birds were counted at site 42?
 
 
 ```{r, include=F, echo=F}
@@ -225,7 +210,7 @@ number_of_birds[length(number_of_birds)]
 
 ### Portal Data Manipulation
 
-Download a copy of the `survey data` from Brightspace and load it into R using `read.csv()`.
+In this section, we want you to use `surveys.csv`, which you have already downloaded from Brightspace.
 
 ```{r, include=F}
 
@@ -233,46 +218,34 @@ survey <- read.csv("lab_data/surveys.csv")
 
 ```
 
-**HAND IN** Answer the following. 
+In your R Script, indicate with a comment that you are starting a new section `## Portal data`.
 
-1.  Using the `select()` function create a new data frame called `survey_new` that only contains the columns `year`, `month`, `day`, and `species_id` in that order.
+**HAND IN. [Q17]** Add lines of code to your R script to [load](https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data) the file `surveys.csv`.
 
-2.  Using the `mutate()`, `select()`, `filter()`, and `!is.na()` functions to create a new data frame with only `year()`, `species_id` and `weight()` in **kilograms of each individual**. The weight in the table is given in grams, so you will need to create a new column or convert weight into kilograms. (*Recall that 1 g = 0.001 kg.*)
+**HAND IN. [Q18]** Add lines of code to your R script where you use `filter()` to create a new data frame `survey_new` where you have [removed all rows with `NA`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#removing-na-entries-in-data) in the `weight` column.
 
-3.  Use the `filter()` function, print only the rows in the data frame for the species ID =`SH`.
+**HAND IN. [Q19]**  Add lines of code to your R script where you use the [`select()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#selecting-a-column) function to create a new data frame called `survey_new_2` that only contains the columns `year`, `month`, `day`, and `species_id` in that order.
 
-### Portal Data Manipulation Pipes 
+**HAND IN. [Q20]**   Add lines of code to your R script where you use [`mutate()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#adding-a-new-column) to calculate `weight_kg`, which is weight in **kilograms**, and add this new column to `survey_new_2`, where the result is named `survey_new_3`. The weight in `survey_new_2` was given in grams, so you will need to convert `weight` into kilograms. (*Recall that 1 g = 0.001 kg.*).
 
-Using the `survey data` we will be using the `%>%` pipe operations to manipulate the data. The pipe operation can be used to easy combine previous functions.
+**HAND IN. [Q21]**  Add lines of code to your R script, where you use [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) to make a new data frame `survey_new_4` which is the same as `survery_new_3` except that only the rows with `species_id =="SH"` are included.
 
-The pipe function allows for separate functions to be combined. For example, instead of creating two data frames where one removes `na` entries and the other adds new columns, the pipe operation combines them. Below is an example, I will create a new data frame with only `month()`, `plot_id()` and a new column `wight_mil`.
+**HAND IN. [Q22]** Add a line of code to your R script where you print the first 6 rows of `survey_new_4` using the [`head()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#useful-functions) function.
 
-```{r}
-new_pipe_survey_df <- 
-          survey %>% 
-           filter(!is.na(weight)) %>%
-            mutate(weight_mil=weight*100) %>%
-            select(month, plot_id, weight_mil)
-           
-```
+### Using pipes
 
-You can see that the same functions are used above in section **2.1.4 Portable Data Manipulation**, but rather than listing each command individually, the functions are connected via the `%>%` pipe operation.
+In your R Script, indicate with a comment that you are starting a new section `## Using pipes`.
 
-**HAND IN:** Using the `%>%` operation, answer the following questions.
+**HAND IN. [Q23]** Add lines of code to your R script were you produce a data frame `survey_new_5` from `surveys.csv`, which is the same as `survey_new_4`, but where you use the [pipe `%>%`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#pipes) operation and do not create the intermediaries `survey_new_2`, `survey_new_3`, and `survey_new_4`.
 
-1.  Using the `mutate()`, `select()`, `filter()`, and/or `!is.na()` functions to create a new data frame with only `year()`, `species_id` and `weight()` in **kilograms of each individual**.
+**HAND IN. [Q24]** Add a line of code to your R script, where you print the first 6 rows of `survey_new_5` using the [`head()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#useful-functions).
 
-2.  Use the `filter()` and `select()` to get the `year`, `month`, `day`, `weight` in kg, and `species_id` columns for all of the rows in the data frame where `species_id` is `SH`. Use the `head()` command to print the top of the data frame.
-
-```{r, echo=F}
-
-head(survey %>%
-filter(species_id == "SH") %>%
+```{r, include=F}
+survey_new_5 = filter(survey,species_id == "SH") %>%
 filter(!is.na(weight)) %>%
             mutate(weight_kg=weight/100) %>%
             select(year, month, day, weight_kg, species_id)
-)
+head(survey_new_5)
 ```
 
-Above is the `head()` print out of the `%>%` piped operation. Does it look similar to yours?
 
