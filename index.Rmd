@@ -7,7 +7,7 @@ output:
   bookdown::gitbook: default
   #bookdown::pdf_book: default
 ---
-# Managing Biological Data
+# Before coming to the labs
 
 ```{r, include=F, echo=F}
 # additional information not include in on the website
@@ -15,11 +15,9 @@ library(dplyr)
 
 ```
 
-## Lab 1: Data in Tables {#lab1}
 
-**Overview:** In this week's lab, we will be building on the R skills you learned in BIOL 1001. We will be focusing on manipulating and organizing data in tables, and learn a useful package called [dplyr](https://dplyr.tidyverse.org/) (pronounced "d-plier")
+**Overview:** In these two computer labs, we will be building on the R skills you learned in BIOL 1001. We will be focusing on manipulating and organizing data in tables, and learn a useful package called [dplyr](https://dplyr.tidyverse.org/) (pronounced "d-plier")
 
-### Before coming to lab {-}
 
 Install:
 
@@ -43,18 +41,17 @@ Read:
 
 When using R, you have many ways to get [help](https://ahurford.github.io/quant-guide-all-courses/help.html).
 
-In addition, this week's lab is taken from _Week 3: Data in Tables_ of the online course [Data Carpentry for Biologists](https://datacarpentry.org/semester-biology/schedule/) by Dr. Ethan White. If you are not sure how to execute a particular command, you can refer to the _Lecture_ material on [Dr. White's website](https://datacarpentry.org/semester-biology/lectures/R-data/)</u> and/or his [instructional videos](https://datacarpentry.org/semester-biology/lectures/R-data/) that go with the _Data in Tables_ lesson. The example data in the lecture material and videos is different from the data you use in the exercise.
+In addition, these labs are based on _Week 3: Data in Tables_ (PART I) and _Week 4: Grouping & Joining Data_ (PART II) of the online course [Data Carpentry for Biologists](https://datacarpentry.org/semester-biology/schedule/) by Dr. Ethan White. If you are not sure how to execute a particular command, you can refer to the _Lecture_ material on [Dr. White's website](https://datacarpentry.org/semester-biology/lectures/R-data/)</u> and/or his [instructional videos](https://datacarpentry.org/semester-biology/lectures/R-data/) that go with the relevant lessons. The example data in the lecture material and videos is different from the data you use in the exercise.
 
------------------------------------------------------------
-
-**After the following lab you should be able to:**
+**After these labs you should be able to:**
 
 - install packages and load data,
 -   understand the data manipulation functions of `dplyr`,
 -   and execute a simple import and data filter scenario
 
-**TO HAND-IN**
-You are to hand in a `.R` file, formatted as shown in [Best  Practices - Template](https://ahurford.github.io/quant-guide-all-courses/style.html#template) where the lines of code to produce the output asked for under **HAND-IN** are produced in the order they are asked for.
+-----------------------------------------------------------
+
+# PART I: Managing biological data
 
 **Getting started**
 
@@ -62,7 +59,7 @@ You are to hand in a `.R` file, formatted as shown in [Best  Practices - Templat
 
 - Download, to an appropriate folder, the following .csv files from Brightspace:
 
-    -   shrub-volume.csv
+    -   shrub-volume-data.csv
 
     -   max-temperature.csv
 
@@ -80,19 +77,24 @@ Throughout these instructions are links to the relevant sections in [*Quantitati
 
 If you do not complete these steps, you will not be able to complete the **HAND IN** questions.
 
-### Shrub Volume Data Basic
+**TO HAND-IN**
+You are to hand in a `.R` file, formatted as shown in [Best  Practices - Template](https://ahurford.github.io/quant-guide-all-courses/style.html#template) where the lines of code to produce the output asked for under **HAND-IN** are produced in the order they are asked for.
+
+-----------------------------------------------------------
+
+## Shrub Volume Data Basic
 
 After writing the command `library(dplyr)` in your R script to attach `dplyr`, next [import the data](https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data). If you use the programmatic way (i.e., command line), your command may look something like this:
 
 ```{r}
-ShrubData <- read.csv("lab_data/shrub-volume.csv")
+ShrubData <- read.csv("lab_data/shrub-volume-data.csv")
 ```
 
-The exact command will depend on where you saved `shrub-volume-data.csv` and how you have set your [working directory](https://ahurford.github.io/quant-guide-all-courses/rintro.html#working-directory). You may call your dataset `ShrubData` or give it a different name.
+The exact command will depend on where you saved `shrub-volume-data-data.csv` and how you have set your [working directory](https://ahurford.github.io/quant-guide-all-courses/rintro.html#working-directory). You may call your dataset `ShrubData` or give it a different name.
 
 You will need this command in your R script or you will not be able to complete the **HAND-IN** questions that appear next.
 
-**HAND-IN. [Q1]**  Add a line of code to your R script where you use the [`select()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#selecting-a-column) function to select the `site` and `experiment` columns of `shrub-volume.csv` (note: that above we named this file, `ShrubData`: you many have given it a different name). To learn how to use the `select()` function click on the `select()` link above.
+**HAND-IN. [Q1]**  Add a line of code to your R script where you use the [`select()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#selecting-a-column) function to select the `site` and `experiment` columns of `shrub-volume-data.csv` (note: that above we named this file, `ShrubData`: you many have given it a different name). To learn how to use the `select()` function click on the `select()` link above.
 
 **HAND IN. [Q2]** Add a line of code to your R script where you use the [`mutate()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#adding-a-new-column) function to create a column called `area`. (Reminder, the area of a rectangle is equal to the length * width).
 
@@ -109,7 +111,7 @@ You will need this command in your R script or you will not be able to complete 
 **HAND IN. [Q8]** Add a line of code to your R script  where you use the `filter()` function [remove the rows with `NA`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#removing-na-entries-in-data) from your data.
 
 
-### Mean maximum monthly temperature in Bay D'Espoir
+## Mean maximum monthly temperature in Bay D'Espoir
 
 In this section, we want you to use `max-temperature.csv` which you have already downloaded from Brightspace.
 
@@ -146,7 +148,7 @@ monthly_temp = as.data.frame(monthly_temp)
 ```
 
 
-### Bird Banding
+## Bird Banding
 
 The number of birds banded at a series of sampling sites has been counted by your field crew and entered into the following vector. 
 
@@ -208,7 +210,7 @@ number_of_birds[length(number_of_birds)]
 
 ```
 
-### Portal Data Manipulation
+## Portal Data Manipulation
 
 In this section, we want you to use `surveys.csv`, which you have already downloaded from Brightspace.
 
@@ -232,7 +234,7 @@ In your R Script, indicate with a comment that you are starting a new section `#
 
 **HAND IN. [Q22]** Add a line of code to your R script where you print the first 6 rows of `survey_new_4` using the [`head()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#useful-functions) function.
 
-### Using pipes
+## Using pipes
 
 In your R Script, indicate with a comment that you are starting a new section `## Using pipes`.
 
