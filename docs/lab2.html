@@ -196,28 +196,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>TO HAND-IN</strong>
 You are to hand in a <code>.R</code> file, formatted as shown in <a href="https://ahurford.github.io/quant-guide-all-courses/style.html#template">Best Practices - Template</a> where the lines of code to produce the output asked for under <strong>HAND-IN</strong> are produced in the order they are asked for.</p>
 <hr />
-<p>[ED - I am still working on this part]</p>
 <div id="grouping-and-joining-data" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Grouping and Joining Data</h2>
 <div id="shrub-volume-aggregation" class="section level3" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> Shrub Volume Aggregation</h3>
-<p>This is a follow-up to <a href="https://datacarpentry.org/semester-biology/exercises/Dplyr-shrub-volume-data-basics-R">Shrub Volume Data Basics</a> that you saw in last week lab.</p>
-<p>Dr. Granger wants to summarize data of the plants at her sites and for her experiments. Check if the files <code>shrub-volume.csv</code> is already in your work space, if not download it from the Lab 6 Brightspace page.</p>
-<p>The following code calculates the average width of plants at each site. Both the pipe operation method and the non-pipe operation method will be highlighted.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="lab2.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Non-pipe method </span></span>
-<span id="cb3-2"><a href="lab2.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">getwd</span>())</span></code></pre></div>
-<pre><code>## [1] &quot;/Users/ahurford/Desktop/Work/Teaching/Quant training/BIOL 1002 Quant labs/biol-1002&quot;</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="lab2.html#cb5-1" aria-hidden="true" tabindex="-1"></a>shrub_dims <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;lab_data/shrub-volume-data.csv&quot;</span>)</span>
-<span id="cb5-2"><a href="lab2.html#cb5-2" aria-hidden="true" tabindex="-1"></a>by_site <span class="ot">&lt;-</span> <span class="fu">group_by</span>(shrub_dims, site)</span>
-<span id="cb5-3"><a href="lab2.html#cb5-3" aria-hidden="true" tabindex="-1"></a>avg_width <span class="ot">&lt;-</span> <span class="fu">summarize</span>(by_site, <span class="at">avg_width=</span><span class="fu">mean</span>(width))</span>
-<span id="cb5-4"><a href="lab2.html#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="lab2.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipe operation method </span></span>
-<span id="cb5-6"><a href="lab2.html#cb5-6" aria-hidden="true" tabindex="-1"></a>avg_width_pipe <span class="ot">&lt;-</span> shrub_dims <span class="sc">%&gt;%</span></span>
-<span id="cb5-7"><a href="lab2.html#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
-<span id="cb5-8"><a href="lab2.html#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(width))</span>
-<span id="cb5-9"><a href="lab2.html#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="lab2.html#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Showing the top or &#39;head&#39; of the two different methods</span></span>
-<span id="cb5-11"><a href="lab2.html#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avg_width)</span></code></pre></div>
+<p>In this section, we revisit <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#group-summary">grouping data</a> and using <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#pipes">pipes</a>. The following code calculates the mean width of plants at each site. Both the pipe operation method and the non-pipe operation method will be highlighted.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="lab2.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># attach dplyr</span></span>
+<span id="cb3-2"><a href="lab2.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-3"><a href="lab2.html#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="lab2.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load the data </span></span>
+<span id="cb3-5"><a href="lab2.html#cb3-5" aria-hidden="true" tabindex="-1"></a>shrub_dims <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;lab_data/shrub-volume-data.csv&quot;</span>)</span>
+<span id="cb3-6"><a href="lab2.html#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="lab2.html#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean width for each site:</span></span>
+<span id="cb3-8"><a href="lab2.html#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 1. Without using pipes:</span></span>
+<span id="cb3-9"><a href="lab2.html#cb3-9" aria-hidden="true" tabindex="-1"></a>by_site <span class="ot">&lt;-</span> <span class="fu">group_by</span>(shrub_dims, site)</span>
+<span id="cb3-10"><a href="lab2.html#cb3-10" aria-hidden="true" tabindex="-1"></a>avg_width <span class="ot">&lt;-</span> <span class="fu">summarize</span>(by_site, <span class="at">avg_width=</span><span class="fu">mean</span>(width))</span>
+<span id="cb3-11"><a href="lab2.html#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="lab2.html#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 2. Using pipes:</span></span>
+<span id="cb3-13"><a href="lab2.html#cb3-13" aria-hidden="true" tabindex="-1"></a>avg_width_pipe <span class="ot">&lt;-</span> shrub_dims <span class="sc">%&gt;%</span></span>
+<span id="cb3-14"><a href="lab2.html#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href="lab2.html#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(width))</span>
+<span id="cb3-16"><a href="lab2.html#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="lab2.html#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Showing the first six rows with both methods</span></span>
+<span id="cb3-18"><a href="lab2.html#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avg_width)</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##    site avg_width
 ##   &lt;int&gt;     &lt;dbl&gt;
@@ -225,7 +226,7 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 ## 2     2      3.47
 ## 3     3      1.43
 ## 4     4     NA</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="lab2.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avg_width_pipe)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="lab2.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avg_width_pipe)</span></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##    site `mean(width)`
 ##   &lt;int&gt;         &lt;dbl&gt;
@@ -233,31 +234,39 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 ## 2     2          3.47
 ## 3     3          1.43
 ## 4     4         NA</code></pre>
-<p><strong>HAND IN</strong> Do the following:</p>
-<ol style="list-style-type: decimal">
-<li><p>Using the code above, modify to calculate and print the average height of plants in each experiment.</p></li>
-<li><p>Use <code>max()</code> to determine the maximum height of a plant at each site.</p></li>
-</ol>
+<p><strong>HAND IN. [Q1]</strong> Add a line of code to your R script where you use <em>pipes</em> to calculate the mean <em>height</em> of plants in each <em>experiment</em>, and use <code>head()</code> to print the output (the above code is intended as a guide you can modify).</p>
+<p><strong>HAND IN. [Q2]</strong> Add a line of code to your R script where you use <em>pipes</em> to calculate the maximum, <code>max()</code>, <em>height</em> of a plant at each <em>site</em> and use <code>head()</code> to print the output.</p>
 </div>
 <div id="shrub-volume-join" class="section level3" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Shrub Volume Join</h3>
-<p>In addition to the main data table on shrub dimensions, Dr. Granger has two additional data tables. The first describes the manipulation for each experiment. The second provides information about the different sites. Download, if you have not already done so, the file <code>shrub-to-volume-experiment.csv</code> and <code>shrub-volume-sites.csv</code> from this week’s Brightspace page.</p>
-<p><strong>HAND IN</strong> Do the following:</p>
-<ol style="list-style-type: decimal">
-<li><p>Import the experiments data, <code>shrub-volume-experiment.csv</code>, and then use <code>inner_join()</code> function to combine it with the shrub dimensions, <code>shrub_dims</code> data to add a <code>manipulation</code> column to the shrub data. Include the head of the new data frame. <em>TIP</em> If you’re unfamiliar with the <code>inner_join()</code> function, you can use either the <code>?inner_join</code> command or <code>example(inner_join)</code> command for help.</p></li>
-<li><p>Import the sites data, <code>shrub-to-volume-sites</code>, and then combine it with both the data on shrub dimensions and the experiment data to produce a <strong>single data frame that contains all of the data.</strong> Hand in the tail output of the new data frame. <em>Hint: you’ve just created a single data frame that contains both the shrub and experimental data.</em></p></li>
+<p>In addition to the main data table on shrub dimensions, there are two additional data tables:</p>
+<ul>
+<li><code>shrub-to-volume-experiment.csv</code>, which describes the manipulation for each experiment; and - <code>shrub-volume-sites.csv</code>, which provides information about the different sites.</li>
+</ul>
+<p>Your are to use <code>inner_join()</code> to create a new data frame with the site details added. You can read about <code>inner_join()</code> <a href="https://stat545.com/join-cheatsheet.html">here</a>.</p>
+<p><strong>HAND IN. [Q3]</strong>. In your R Script, indicate with a comment that you are starting a new section <code>## Shrub volume join</code>.</p>
+<p>Add lines of code to your R Script where you:</p>
+<ul>
+<li><p>Import the experiments data, <code>shrub-volume-experiment.csv</code> and use <code>head()</code> to view the first six rows of data.</p></li>
+<li><p>View the first six rows of the data <code>shrub-volume-data.csv</code> (note that in the above code this was assigned the variable name <code>shrub_dims</code>).</p></li>
+</ul>
+<p><strong>HAND IN. [Q4]</strong> In your R Script, add a commented out line of code where you provide the name of columns that appear in both data sets.</p>
+<p><strong>HAND IN. [Q5]</strong> In your R Script, add a commented out line of code where you provide the <em>values</em> of the column with the same name that appear in both data sets.</p>
+<p><strong>HAND IN. [Q5]</strong> Use the <code>inner_join()</code> function to combine the sites data with the shrub dimensions, <code>shrub_dims</code> data (note you may have given a different variable name to your import of <code>shrub-volume-data.csv</code>).</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Import the sites data, <code>shrub-to-volume-sites</code>, and then combine it with both the data on shrub dimensions and the experiment data to produce a <strong>single data frame that contains all of the data.</strong> Hand in the tail output of the new data frame. <em>Hint: you’ve just created a single data frame that contains both the shrub and experimental data.</em></li>
 </ol>
 </div>
 <div id="portal-data-aggregation" class="section level3" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Portal Data Aggregation</h3>
 <p>This exercise uses the <code>survey.csv</code> (Portal Teaching Database survey table) file you downloaded for last week’s lab. If the <code>survey.csv</code> is not in your workspace download it from last week’s Brightspace folder.</p>
 <p>In this section you will be using the <code>group_by()</code>, <code>summarize()</code>, <code>tally()</code> and <code>filter()</code> functions. More information about each of the functions can be found under the Help Tab or through the <code>?function</code> and <code>??function</code> commands. Examples for how to use the <code>?</code> and <code>??</code> command are below.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="lab2.html#cb9-1" aria-hidden="true" tabindex="-1"></a>?group_by</span>
-<span id="cb9-2"><a href="lab2.html#cb9-2" aria-hidden="true" tabindex="-1"></a>??group_by</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="lab2.html#cb7-1" aria-hidden="true" tabindex="-1"></a>?group_by</span>
+<span id="cb7-2"><a href="lab2.html#cb7-2" aria-hidden="true" tabindex="-1"></a>??group_by</span></code></pre></div>
 <p><em>Hint</em>: For this section it maybe useful to use pipe <code>%&gt;%</code> operations and the <code>tally</code> function. For example, I can tally the number of individuals that either identify as <code>M</code> or <code>F</code> in the sex column.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="lab2.html#cb10-1" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="lab2.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a href="lab2.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="lab2.html#cb8-1" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="lab2.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="lab2.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   sex       n
 ##   &lt;chr&gt; &lt;int&gt;
@@ -275,18 +284,18 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 <h3><span class="header-section-number">3.1.4</span> Fix the code</h3>
 <p>This section is a follow up to the Shrub Volume Aggregation.</p>
 <p>The following code is supposed to import the shrub volume data and calculate the average shrub volume for each site, and separately, for each experiment.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="lab2.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(shrub<span class="sc">-</span>volume<span class="sc">-</span>data.csv)</span>
-<span id="cb12-2"><a href="lab2.html#cb12-2" aria-hidden="true" tabindex="-1"></a>shrub_data <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="lab2.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">volume =</span> length <span class="sc">*</span> width <span class="sc">*</span> height) <span class="sc">%&gt;%</span></span>
-<span id="cb12-4"><a href="lab2.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
-<span id="cb12-5"><a href="lab2.html#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_volume=</span> <span class="fu">max</span>(volume))</span>
-<span id="cb12-6"><a href="lab2.html#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="lab2.html#cb12-7" aria-hidden="true" tabindex="-1"></a>shrub_data <span class="sc">%&gt;%</span></span>
-<span id="cb12-8"><a href="lab2.html#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">volume =</span> length <span class="sc">*</span> width <span class="sc">*</span> height) <span class="sc">%&gt;%</span></span>
-<span id="cb12-9"><a href="lab2.html#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(experiment) <span class="sc">%&gt;%</span></span>
-<span id="cb12-10"><a href="lab2.html#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sumarize</span>(<span class="at">mean_volume =</span> <span class="fu">mean</span>(volume))</span>
-<span id="cb12-11"><a href="lab2.html#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-12"><a href="lab2.html#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co"># This is an example of a comment within code</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="lab2.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(shrub<span class="sc">-</span>volume<span class="sc">-</span>data.csv)</span>
+<span id="cb10-2"><a href="lab2.html#cb10-2" aria-hidden="true" tabindex="-1"></a>shrub_data <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="lab2.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">volume =</span> length <span class="sc">*</span> width <span class="sc">*</span> height) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="lab2.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="lab2.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_volume=</span> <span class="fu">max</span>(volume))</span>
+<span id="cb10-6"><a href="lab2.html#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="lab2.html#cb10-7" aria-hidden="true" tabindex="-1"></a>shrub_data <span class="sc">%&gt;%</span></span>
+<span id="cb10-8"><a href="lab2.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">volume =</span> length <span class="sc">*</span> width <span class="sc">*</span> height) <span class="sc">%&gt;%</span></span>
+<span id="cb10-9"><a href="lab2.html#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(experiment) <span class="sc">%&gt;%</span></span>
+<span id="cb10-10"><a href="lab2.html#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sumarize</span>(<span class="at">mean_volume =</span> <span class="fu">mean</span>(volume))</span>
+<span id="cb10-11"><a href="lab2.html#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="lab2.html#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># This is an example of a comment within code</span></span></code></pre></div>
 <p><strong>HAND IN</strong>:</p>
 <ol style="list-style-type: decimal">
 <li><p>Fix the errors in the code so that it does what it’s supposed to.</p></li>
@@ -325,9 +334,9 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 <div id="building-data-frames-from-vectors" class="section level3" number="3.1.8">
 <h3><span class="header-section-number">3.1.8</span> Building data frames from vectors</h3>
 <p>You have data on the <code>length</code>, <code>width</code>, and <code>height</code> of 10 individuals of the English yew <em>Taxus baccata</em> stored in the following vectors:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="lab2.html#cb13-1" aria-hidden="true" tabindex="-1"></a>length <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.2</span>, <span class="fl">2.1</span>, <span class="fl">2.7</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">2.5</span>, <span class="fl">1.9</span>, <span class="fl">1.1</span>, <span class="fl">3.5</span>, <span class="fl">2.9</span>)</span>
-<span id="cb13-2"><a href="lab2.html#cb13-2" aria-hidden="true" tabindex="-1"></a>width <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.3</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.5</span>, <span class="fl">3.1</span>, <span class="cn">NA</span>, <span class="fl">1.8</span>, <span class="fl">0.5</span>, <span class="fl">2.0</span>, <span class="fl">2.7</span>)</span>
-<span id="cb13-3"><a href="lab2.html#cb13-3" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">9.6</span>, <span class="fl">7.6</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.0</span>, <span class="fl">3.0</span>, <span class="fl">4.5</span>, <span class="fl">2.3</span>, <span class="fl">7.5</span>, <span class="fl">3.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="lab2.html#cb11-1" aria-hidden="true" tabindex="-1"></a>length <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.2</span>, <span class="fl">2.1</span>, <span class="fl">2.7</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">2.5</span>, <span class="fl">1.9</span>, <span class="fl">1.1</span>, <span class="fl">3.5</span>, <span class="fl">2.9</span>)</span>
+<span id="cb11-2"><a href="lab2.html#cb11-2" aria-hidden="true" tabindex="-1"></a>width <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.3</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.5</span>, <span class="fl">3.1</span>, <span class="cn">NA</span>, <span class="fl">1.8</span>, <span class="fl">0.5</span>, <span class="fl">2.0</span>, <span class="fl">2.7</span>)</span>
+<span id="cb11-3"><a href="lab2.html#cb11-3" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">9.6</span>, <span class="fl">7.6</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.0</span>, <span class="fl">3.0</span>, <span class="fl">4.5</span>, <span class="fl">2.3</span>, <span class="fl">7.5</span>, <span class="fl">3.2</span>)</span></code></pre></div>
 <p><strong>HAND IN</strong> a data frame that contains these three vectors as columns along with a genus column containing the name <em>Taxus</em> for all rows <strong>and</strong> a species column containing the word <em>baccata</em> for all rows.</p>
 
 </div>

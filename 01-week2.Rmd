@@ -35,53 +35,64 @@ You are to hand in a `.R` file, formatted as shown in [Best  Practices - Templat
 
 ------------------------------------------------------------------------
 
-[ED - I am still working on this part]
-
 ## Grouping and Joining Data
 
 ### Shrub Volume Aggregation 
 
-This is a follow-up to [Shrub Volume Data Basics](https://datacarpentry.org/semester-biology/exercises/Dplyr-shrub-volume-data-basics-R) that you saw in last week lab.
+In this section, we revisit [grouping data](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#group-summary) and using [pipes](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#pipes). The following code calculates the mean width of plants at each site. Both the pipe operation method and the non-pipe operation method will be highlighted.
 
-Dr. Granger wants to summarize data of the plants at her sites and for her experiments. Check if the files `shrub-volume.csv` is already in your work space, if not download it from the Lab 6 Brightspace page.
-
-The following code calculates the average width of plants at each site. Both the pipe operation method and the non-pipe operation method will be highlighted.
 ```{r, include=F}
 library(dplyr)
 ```
 
 ```{r}
-# Non-pipe method 
-print(getwd())
+# attach dplyr
+library(dplyr)
 
+# load the data 
 shrub_dims <- read.csv("lab_data/shrub-volume-data.csv")
+
+# Calculate the mean width for each site:
+## 1. Without using pipes:
 by_site <- group_by(shrub_dims, site)
 avg_width <- summarize(by_site, avg_width=mean(width))
 
-# Pipe operation method 
+## 2. Using pipes:
 avg_width_pipe <- shrub_dims %>%
   group_by(site) %>%
   summarize(mean(width))
 
-# Showing the top or 'head' of the two different methods
+# Showing the first six rows with both methods
 head(avg_width)
 head(avg_width_pipe)
 ```
 
-**HAND IN** Do the following:
+**HAND IN. [Q1]** Add a line of code to your R script where you use *pipes* to calculate the mean *height* of plants in each *experiment*, and use `head()` to print the output (the above code is intended as a guide you can modify).
 
-
-1. Using the code above, modify to calculate and print the average height of plants in each experiment. 
-
-2. Use `max()` to determine the maximum height of a plant at each site.
+**HAND IN. [Q2]** Add a line of code to your R script where you use *pipes* to calculate the maximum, `max()`, *height* of a plant at each *site* and use `head()` to print the output.
 
 ### Shrub Volume Join 
 
-In addition to the main data table on shrub dimensions, Dr. Granger has two additional data tables. The first describes the manipulation for each experiment. The second provides information about the different sites. Download, if you have not already done so, the file `shrub-to-volume-experiment.csv` and `shrub-volume-sites.csv` from this week's Brightspace page.
+In addition to the main data table on shrub dimensions, there are two additional data tables:
 
-**HAND IN** Do the following:
+- `shrub-to-volume-experiment.csv`, which describes the manipulation for each experiment; and - `shrub-volume-sites.csv`, which provides information about the different sites.
 
-1. Import the experiments data, `shrub-volume-experiment.csv`, and then use `inner_join()` function to combine it with the shrub dimensions, `shrub_dims` data to add a `manipulation` column to the shrub data. Include the head of the new data frame. *TIP* If you're unfamiliar with the `inner_join()` function, you can use either the `?inner_join` command or `example(inner_join)` command for help. 
+Your are to use `inner_join()` to create a new data frame with the site details added. You can read about `inner_join()` [here](https://stat545.com/join-cheatsheet.html).
+
+
+**HAND IN. [Q3]**. In your R Script, indicate with a comment that you are starting a new section `## Shrub volume join`.
+
+Add lines of code to your R Script where you:
+
+- Import the experiments data, `shrub-volume-experiment.csv` and use `head()` to view the first six rows of data.
+
+- View the first six rows of the data `shrub-volume-data.csv` (note that in the above code this was assigned the variable name `shrub_dims`).
+
+**HAND IN. [Q4]** In your R Script, add a commented out line of code where you provide the name of columns that appear in both data sets.
+
+**HAND IN. [Q5]** In your R Script, add a commented out line of code where you provide the *values* of the column with the same name that appear in both data sets.
+
+**HAND IN. [Q5]** Use the `inner_join()` function to combine the sites data with the shrub dimensions, `shrub_dims` data (note you may have given a different variable name to your import of `shrub-volume-data.csv`). 
 
 2. Import the sites data, `shrub-to-volume-sites`, and then combine it with both the data on shrub dimensions and the experiment data to produce a **single data frame that contains all of the data.** Hand in the tail output of the new data frame.  *Hint: you've just created a single data frame that contains both the shrub and experimental data.*
 
