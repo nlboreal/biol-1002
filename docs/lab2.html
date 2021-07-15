@@ -147,13 +147,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="lab2.html"><a href="lab2.html#shrub-volume-aggregation"><i class="fa fa-check"></i><b>3.1.1</b> Shrub Volume Aggregation</a></li>
 <li class="chapter" data-level="3.1.2" data-path="lab2.html"><a href="lab2.html#shrub-volume-join"><i class="fa fa-check"></i><b>3.1.2</b> Shrub Volume Join</a></li>
-<li class="chapter" data-level="3.1.3" data-path="lab2.html"><a href="lab2.html#portal-data-aggregation"><i class="fa fa-check"></i><b>3.1.3</b> Portal Data Aggregation</a></li>
-<li class="chapter" data-level="3.1.4" data-path="lab2.html"><a href="lab2.html#fix-the-code"><i class="fa fa-check"></i><b>3.1.4</b> Fix the code</a></li>
-<li class="chapter" data-level="3.1.5" data-path="lab2.html"><a href="lab2.html#portdatajoins"><i class="fa fa-check"></i><b>3.1.5</b> Portal Data Joins</a></li>
-<li class="chapter" data-level="3.1.6" data-path="lab2.html"><a href="lab2.html#portal-data-dplyr-review"><i class="fa fa-check"></i><b>3.1.6</b> Portal Data <code>dplyr</code> Review</a></li>
-<li class="chapter" data-level="3.1.7" data-path="lab2.html"><a href="lab2.html#extracting-vectors-from-data-frames"><i class="fa fa-check"></i><b>3.1.7</b> Extracting vectors from data frames</a></li>
-<li class="chapter" data-level="3.1.8" data-path="lab2.html"><a href="lab2.html#building-data-frames-from-vectors"><i class="fa fa-check"></i><b>3.1.8</b> Building data frames from vectors</a></li>
 </ul></li>
+<li class="chapter" data-level="3.2" data-path="lab2.html"><a href="lab2.html#portal-data-aggregation"><i class="fa fa-check"></i><b>3.2</b> Portal Data Aggregation</a></li>
+<li class="chapter" data-level="3.3" data-path="lab2.html"><a href="lab2.html#fix-the-code"><i class="fa fa-check"></i><b>3.3</b> Fix the code</a></li>
+<li class="chapter" data-level="3.4" data-path="lab2.html"><a href="lab2.html#portdatajoins"><i class="fa fa-check"></i><b>3.4</b> Portal Data Joins</a></li>
+<li class="chapter" data-level="3.5" data-path="lab2.html"><a href="lab2.html#portal-data-dplyr-review"><i class="fa fa-check"></i><b>3.5</b> Portal Data <code>dplyr</code> Review</a></li>
+<li class="chapter" data-level="3.6" data-path="lab2.html"><a href="lab2.html#extracting-vectors-from-data-frames"><i class="fa fa-check"></i><b>3.6</b> Extracting vectors from data frames</a></li>
+<li class="chapter" data-level="3.7" data-path="lab2.html"><a href="lab2.html#building-data-frames-from-vectors"><i class="fa fa-check"></i><b>3.7</b> Building data frames from vectors</a></li>
 </ul></li>
 </ul>
 
@@ -252,13 +252,12 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 </ul>
 <p><strong>HAND IN. [Q4]</strong> In your R Script, add a commented out line of code where you provide the name of columns that appear in both data sets.</p>
 <p><strong>HAND IN. [Q5]</strong> In your R Script, add a commented out line of code where you provide the <em>values</em> of the column with the same name that appear in both data sets.</p>
-<p><strong>HAND IN. [Q5]</strong> Use the <code>inner_join()</code> function to combine the sites data with the shrub dimensions, <code>shrub_dims</code> data (note you may have given a different variable name to your import of <code>shrub-volume-data.csv</code>).</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Import the sites data, <code>shrub-to-volume-sites</code>, and then combine it with both the data on shrub dimensions and the experiment data to produce a <strong>single data frame that contains all of the data.</strong> Hand in the tail output of the new data frame. <em>Hint: you’ve just created a single data frame that contains both the shrub and experimental data.</em></li>
-</ol>
+<p><strong>HAND IN. [Q6]</strong> In your R Script, add a line of code where you use the <code>inner_join()</code> function to combine the sites data with the shrub dimensions, <code>shrub_dims</code> data (note you may have given a different variable name to your import of <code>shrub-volume-data.csv</code>).</p>
+<p><strong>HAND IN. [Q7]</strong> In your R Script, add lines of code to import the sites data, <code>shrub-to-volume-sites</code>, and then combine these data with both the data on shrub dimensions and the experiment data to produce a <strong>single data frame that contains all of the data.</strong> Hand in the <code>tail()</code> output of the new data frame. <em>Hint: you’ve just created a single data frame that contains both the shrub and experimental data.</em></p>
 </div>
-<div id="portal-data-aggregation" class="section level3" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> Portal Data Aggregation</h3>
+</div>
+<div id="portal-data-aggregation" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Portal Data Aggregation</h2>
 <p>This exercise uses the <code>survey.csv</code> (Portal Teaching Database survey table) file you downloaded for last week’s lab. If the <code>survey.csv</code> is not in your workspace download it from last week’s Brightspace folder.</p>
 <p>In this section you will be using the <code>group_by()</code>, <code>summarize()</code>, <code>tally()</code> and <code>filter()</code> functions. More information about each of the functions can be found under the Help Tab or through the <code>?function</code> and <code>??function</code> commands. Examples for how to use the <code>?</code> and <code>??</code> command are below.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="lab2.html#cb7-1" aria-hidden="true" tabindex="-1"></a>?group_by</span>
@@ -280,8 +279,8 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 <li><p>Use the <code>filter()</code>, <code>group_by()</code>, and <code>summarize()</code> functions to get the mean mass of species <code>DM</code> in each year. Inlcude the <code>tail</code> output. <em>Hint: double check the <code>survey</code> data is ready to use.</em></p></li>
 </ol>
 </div>
-<div id="fix-the-code" class="section level3" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> Fix the code</h3>
+<div id="fix-the-code" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Fix the code</h2>
 <p>This section is a follow up to the Shrub Volume Aggregation.</p>
 <p>The following code is supposed to import the shrub volume data and calculate the average shrub volume for each site, and separately, for each experiment.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="lab2.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(shrub<span class="sc">-</span>volume<span class="sc">-</span>data.csv)</span>
@@ -302,8 +301,8 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 <li><p>Add comments <code>#</code> throughout to indicate what you have corrected. A portion of your mark for this question qill be determined by the quality of the comments.</p></li>
 </ol>
 </div>
-<div id="portdatajoins" class="section level3" number="3.1.5">
-<h3><span class="header-section-number">3.1.5</span> Portal Data Joins</h3>
+<div id="portdatajoins" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Portal Data Joins</h2>
 <p>This exercise also uses the <code>survey.csv</code> you downloaded from last week’s lab, in addition to the files listed below. Make sure that you have downloaded and loaded these data frames into your R.</p>
 <ul>
 <li><p><a href="%3Chttps://ndownloader.figshare.com/files/3299483">species.csv</a></p></li>
@@ -316,13 +315,13 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 <li><p>Use <code>inner_join()</code> and <code>filter()</code> to get a data frame with the information from the <code>survey</code> and <code>plots</code> tables where the <code>plot_type</code> is <code>Control</code>. Include only the tail output of the new data frame.</p></li>
 </ol>
 </div>
-<div id="portal-data-dplyr-review" class="section level3" number="3.1.6">
-<h3><span class="header-section-number">3.1.6</span> Portal Data <code>dplyr</code> Review</h3>
-<p>The following questions will be using the same data frames as <a href="lab2.html#portdatajoins">3.1.5</a> above:<code>surveys.csv</code>, <code>species.csv</code>, and <code>plot.csv</code>.</p>
+<div id="portal-data-dplyr-review" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Portal Data <code>dplyr</code> Review</h2>
+<p>The following questions will be using the same data frames as <a href="lab2.html#portdatajoins">3.4</a> above:<code>surveys.csv</code>, <code>species.csv</code>, and <code>plot.csv</code>.</p>
 <p><strong>HAND IN</strong> We want you to do an analysis comparing the size of individuals on the <code>Control</code> plot to the <code>Long-term Krat Exclosure</code>. <strong>Create a data frame</strong> with the <code>year</code>, <code>genus</code>, <code>species</code>, <code>weight</code>, and <code>plot_type</code> for all cases where the plot type is either <code>Control</code> or <code>Long-term Krat Exclosure</code>. Only include cases where <code>Taxa</code> is <code>Rodent</code>. Remove any records where the <code>weight</code> is missing. Include the head output and the <code>length()</code> of the new data set. entire <em>Hint: it maybe easiest to use the pipe %&gt;% operation to create</em></p>
 </div>
-<div id="extracting-vectors-from-data-frames" class="section level3" number="3.1.7">
-<h3><span class="header-section-number">3.1.7</span> Extracting vectors from data frames</h3>
+<div id="extracting-vectors-from-data-frames" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Extracting vectors from data frames</h2>
 <p>Using the <code>survey.csv</code> (Portal Teaching Database survey table):</p>
 <p><strong>HAND IN</strong> Do the following</p>
 <ol style="list-style-type: decimal">
@@ -331,15 +330,14 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 <li><p>Extract the <code>hindfoot_length</code> column into a vector and calculate the mean <code>hindfoot_length</code> ignoring null values.</p></li>
 </ol>
 </div>
-<div id="building-data-frames-from-vectors" class="section level3" number="3.1.8">
-<h3><span class="header-section-number">3.1.8</span> Building data frames from vectors</h3>
+<div id="building-data-frames-from-vectors" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Building data frames from vectors</h2>
 <p>You have data on the <code>length</code>, <code>width</code>, and <code>height</code> of 10 individuals of the English yew <em>Taxus baccata</em> stored in the following vectors:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="lab2.html#cb11-1" aria-hidden="true" tabindex="-1"></a>length <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.2</span>, <span class="fl">2.1</span>, <span class="fl">2.7</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">2.5</span>, <span class="fl">1.9</span>, <span class="fl">1.1</span>, <span class="fl">3.5</span>, <span class="fl">2.9</span>)</span>
 <span id="cb11-2"><a href="lab2.html#cb11-2" aria-hidden="true" tabindex="-1"></a>width <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.3</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.5</span>, <span class="fl">3.1</span>, <span class="cn">NA</span>, <span class="fl">1.8</span>, <span class="fl">0.5</span>, <span class="fl">2.0</span>, <span class="fl">2.7</span>)</span>
 <span id="cb11-3"><a href="lab2.html#cb11-3" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">9.6</span>, <span class="fl">7.6</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.0</span>, <span class="fl">3.0</span>, <span class="fl">4.5</span>, <span class="fl">2.3</span>, <span class="fl">7.5</span>, <span class="fl">3.2</span>)</span></code></pre></div>
 <p><strong>HAND IN</strong> a data frame that contains these three vectors as columns along with a genus column containing the name <em>Taxus</em> for all rows <strong>and</strong> a species column containing the word <em>baccata</em> for all rows.</p>
 
-</div>
 </div>
 </div>
             </section>

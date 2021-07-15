@@ -92,9 +92,9 @@ Add lines of code to your R Script where you:
 
 **HAND IN. [Q5]** In your R Script, add a commented out line of code where you provide the *values* of the column with the same name that appear in both data sets.
 
-**HAND IN. [Q5]** Use the `inner_join()` function to combine the sites data with the shrub dimensions, `shrub_dims` data (note you may have given a different variable name to your import of `shrub-volume-data.csv`). 
+**HAND IN. [Q6]** In your R Script, add a line of code where you use the `inner_join()` function to combine the sites data with the shrub dimensions, `shrub_dims` data (note you may have given a different variable name to your import of `shrub-volume-data.csv`). 
 
-2. Import the sites data, `shrub-to-volume-sites`, and then combine it with both the data on shrub dimensions and the experiment data to produce a **single data frame that contains all of the data.** Hand in the tail output of the new data frame.  *Hint: you've just created a single data frame that contains both the shrub and experimental data.*
+**HAND IN. [Q7]** In your R Script, add lines of code to import the sites data, `shrub-to-volume-sites`, and then combine these data with both the data on shrub dimensions and the experiment data to produce a **single data frame that contains all of the data.** Hand in the `tail()` output of the new data frame.  *Hint: you've just created a single data frame that contains both the shrub and experimental data.*
 
 ```{r, include=F, echo=F}
 ##2. Shrub Volume Join
@@ -109,7 +109,7 @@ sites <- read.csv("lab_data/shrub-volume-sites.csv")
 shrub_full <- inner_join(shrub_combined, sites, by = "site")
 ```
 
-### Portal Data Aggregation 
+## Portal Data Aggregation 
 
 This exercise uses the `survey.csv` (Portal Teaching Database survey table) file you downloaded for last week's lab. If the `survey.csv` is not in your workspace download it from last week's Brightspace folder. 
 
@@ -160,7 +160,7 @@ surveys %>%
   summarize(avg_mass = mean(weight))
 ```
 
-### Fix the code 
+## Fix the code 
 
 This section is a follow up to the Shrub Volume Aggregation.
 
@@ -188,7 +188,7 @@ shrub_data %>%
 
 2. Add comments `#` throughout to indicate what you have corrected. A portion of your mark for this question qill be determined by the quality of the comments. 
 
-### Portal Data Joins {#portdatajoins}
+## Portal Data Joins {#portdatajoins}
 
 This exercise also uses the `survey.csv` you downloaded from last week's lab, in addition to the files listed below. Make sure that you have downloaded and loaded these data frames into your R. 
 
@@ -225,7 +225,7 @@ plots %>%
   inner_join(surveys, by = "plot_id")
 ```
 
-### Portal Data `dplyr` Review 
+## Portal Data `dplyr` Review 
 
 The following questions will be using the same data frames as \@ref(portdatajoins) above:`surveys.csv`, `species.csv`, and `plot.csv`.
 
@@ -244,7 +244,7 @@ newTable<-species %>%
 
 ```
 
-### Extracting vectors from data frames 
+## Extracting vectors from data frames 
 
 Using the `survey.csv` (Portal Teaching Database survey table):
 
@@ -256,7 +256,7 @@ Using the `survey.csv` (Portal Teaching Database survey table):
 
 3) Extract the `hindfoot_length` column into a vector and calculate the mean `hindfoot_length` ignoring null values.
 
-### Building data frames from vectors
+## Building data frames from vectors
 
 You have data on the `length`, `width`, and `height` of 10 individuals of the English yew *Taxus baccata* stored in the following vectors:
 
