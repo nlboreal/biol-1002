@@ -245,16 +245,16 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 <ul>
 <li><code>shrub-to-volume-experiment.csv</code>, which describes the manipulation for each experiment; and - <code>shrub-volume-sites.csv</code>, which provides information about the different sites.</li>
 </ul>
-<p>Your are to use <code>inner_join()</code> to create a new data frame with the site details added. You can read about <code>inner_join()</code> <a href="https://stat545.com/join-cheatsheet.html">here</a>.</p>
-<p><strong>HAND IN. [Q3]</strong>. In your R Script, indicate with a comment that you are starting a new section <code>## Shrub volume join</code>.</p>
-<p>Add lines of code to your R Script where you:</p>
+<p>Your are to use <code>inner_join()</code> to create a new data frame with the site details added. You can read about <code>inner_join()</code> <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#joining">here</a>.</p>
+<p><strong>HAND IN. [Q3]</strong>. In your R script, indicate with a comment that you are starting a new section <code>## Shrub volume join</code>.</p>
+<p>Add lines of code to your R script where you:</p>
 <ul>
 <li><p>Import the experiments data, <code>shrub-volume-experiment.csv</code> and use <code>head()</code> to view the first six rows of data.</p></li>
 <li><p>View the first six rows of the data <code>shrub-volume-data.csv</code> (note that in the above code this was assigned the variable name <code>shrub_dims</code>).</p></li>
 </ul>
-<p><strong>HAND IN. [Q4]</strong> In your R Script, add a commented out line of code where you provide the name of columns that appear in both data sets.</p>
-<p><strong>HAND IN. [Q5]</strong> In your R Script, add a commented out line of code where you provide the <strong>values</strong>, from the column with the same name, that appear in both data sets.</p>
-<p><strong>HAND IN. [Q6]</strong> In your R Script, add a line of code where you use the <code>inner_join()</code> function to combine the sites data with the shrub dimensions, <code>shrub_dims</code> data, to produce:</p>
+<p><strong>HAND IN. [Q4]</strong> In your R script, add a commented out line of code where you provide the name of columns that appear in both data sets.</p>
+<p><strong>HAND IN. [Q5]</strong> In your R script, add a commented out line of code where you provide the <strong>values</strong>, from the column with the same name, that appear in both data sets.</p>
+<p><strong>HAND IN. [Q6]</strong> In your R script, add a line of code where you use the <code>inner_join()</code> function to combine the sites data with the shrub dimensions, <code>shrub_dims</code> data, to produce:</p>
 <pre><code>##   site experiment length width height manipulation
 ## 1    1          1    2.2   1.3    9.6      control
 ## 2    1          2    2.1   2.2    7.6         burn
@@ -262,91 +262,112 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 ## 4    2          1    3.0   4.5    1.5      control
 ## 5    2          2    3.1   3.1    4.0         burn
 ## 6    2          3    2.5   2.8    3.0      rainout</code></pre>
-<p><strong>HAND IN. [Q7]</strong> In your R Script, add lines of code to import the sites data, <code>shrub-to-volume-sites</code>, and then combine these data with both the data on shrub dimensions and the experiment data to produce a <strong>single data frame that contains all of the data.</strong> Hand in the <code>tail()</code> output of the new data frame. <em>Hint: you’ve just created a single data frame that contains both the shrub and experimental data.</em></p>
+<p><strong>HAND IN. [Q7]</strong> During the data entry, one occurrence of site 1, was accidently entered as 11. When the data are combined, what happens too this row of data? In your R script, add a commented out line of code answering this question.</p>
+<p><strong>HAND IN. [Q8]</strong> In your R script, add lines of code to import the sites data, <code>shrub-to-volume-sites</code>, and then combine these data with both the data on shrub dimensions and the experiment data to produce a <strong>single data frame that contains all of the data.</strong> Hand in the <code>tail()</code> output of the new data frame. Your output should be as below <em>(Hint: you’ve just created a single data frame that contains both the shrub and experimental data.)</em></p>
+<pre><code>##    site experiment length width height manipulation latitude longitude
+## 8     3          2    1.1   0.5    2.3         burn    29.80    -82.15
+## 9     3          3    3.5   2.0    7.5      rainout    29.80    -82.15
+## 10    4          1    2.9   2.7    3.2      control    29.99    -82.62
+## 11    4          2    4.5   4.8    6.5         burn    29.99    -82.62
+## 12    4          3    1.2    NA    2.7      rainout    29.99    -82.62
+## 13    4          3    1.2    NA    2.7      rainout    29.99    -82.62
+##    elevation
+## 8         57
+## 9         57
+## 10        62
+## 11        62
+## 12        62
+## 13        62</code></pre>
 </div>
 </div>
 <div id="portal-data-aggregation" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Portal Data Aggregation</h2>
-<p>This exercise uses the <code>survey.csv</code> (Portal Teaching Database survey table) file you downloaded for last week’s lab. If the <code>survey.csv</code> is not in your workspace download it from last week’s Brightspace folder.</p>
-<p>In this section you will be using the <code>group_by()</code>, <code>summarize()</code>, <code>tally()</code> and <code>filter()</code> functions. More information about each of the functions can be found under the Help Tab or through the <code>?function</code> and <code>??function</code> commands. Examples for how to use the <code>?</code> and <code>??</code> command are below.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="lab2.html#cb8-1" aria-hidden="true" tabindex="-1"></a>?group_by</span>
-<span id="cb8-2"><a href="lab2.html#cb8-2" aria-hidden="true" tabindex="-1"></a>??group_by</span></code></pre></div>
-<p><em>Hint</em>: For this section it maybe useful to use pipe <code>%&gt;%</code> operations and the <code>tally</code> function. For example, I can tally the number of individuals that either identify as <code>M</code> or <code>F</code> in the sex column.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="lab2.html#cb9-1" aria-hidden="true" tabindex="-1"></a>survey <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;lab_data/surveys.csv&quot;</span>)</span>
-<span id="cb9-2"><a href="lab2.html#cb9-2" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
-<span id="cb9-3"><a href="lab2.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span></span>
-<span id="cb9-4"><a href="lab2.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>()</span></code></pre></div>
+<p>In this section you will be using the <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#grouping"><code>group_by()</code></a> and <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data"><code>filter()</code></a> functions. More information about these functions can be found by clicking the links or through the <code>?function</code> and <code>??function</code> commands. Examples for how to use the <code>?</code> and <code>??</code> command are below.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="lab2.html#cb9-1" aria-hidden="true" tabindex="-1"></a>?group_by</span>
+<span id="cb9-2"><a href="lab2.html#cb9-2" aria-hidden="true" tabindex="-1"></a>??group_by</span></code></pre></div>
+<p><em>Hint</em>: For this section it maybe useful to use pipe <code>%&gt;%</code> operations and the <code>tally()</code> function. For example, I can tally the number of individuals that either identify as <code>M</code> or <code>F</code> in the sex column.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="lab2.html#cb10-1" aria-hidden="true" tabindex="-1"></a>survey <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;lab_data/surveys.csv&quot;</span>)</span>
+<span id="cb10-2"><a href="lab2.html#cb10-2" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="lab2.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="lab2.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   sex       n
 ##   &lt;chr&gt; &lt;int&gt;
 ## 1 &quot;&quot;     2511
 ## 2 &quot;F&quot;   15690
 ## 3 &quot;M&quot;   17348</code></pre>
-<p><strong>HAND IN</strong> Do the following:</p>
-<ol style="list-style-type: decimal">
-<li><p>Use the <code>group_by()</code> function to get a count of the number of individuals in each species <code>ID</code>. Include either the output or place into a table and include.</p></li>
-<li><p>Use the <code>group_by()</code> function to get a count of the number of individuals in each species ID in each year. <em>Hint: you can group_by two variables</em>. Include either the output or place into a table and include.</p></li>
-<li><p>Use the <code>filter()</code>, <code>group_by()</code>, and <code>summarize()</code> functions to get the mean mass of species <code>DM</code> in each year. Inlcude the <code>tail</code> output. <em>Hint: double check the <code>survey</code> data is ready to use.</em></p></li>
-</ol>
+<p><strong>HAND IN. [Q9]</strong> In your R script indicate with a comment that you are starting a new section <code>## Portal data aggregation</code>.</p>
+<p><strong>HAND IN. [Q9]</strong> In your R script add a line of code that <a href="https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data">imports</a> the data <code>survey.csv</code> (Portal Teaching Database survey table).</p>
+<p><strong>HAND IN. [Q10]</strong> In your R script add a line of code that uses the <code>group_by()</code> function to count of the number of individuals in each species <code>ID</code>.</p>
+<p><strong>HAND IN. [Q11]</strong> In your R script add a line of code that uses the <code>group_by()</code> function to count of the number of individuals in each species ID in each year. (<em>Hint: you can group_by two variables</em>).</p>
+<p><strong>HAND IN. [Q12]</strong> In your R script add a line of code where you use the <code>filter()</code>, <code>group_by()</code>, and <code>summarize()</code> functions to calculate the mean mass of species <code>DM</code> in each year. Include the <code>tail</code> output. (<em>Hint: double check the <code>survey</code> data is ready to use.</em>)</p>
 </div>
 <div id="fix-the-code" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Fix the code</h2>
 <p>This section is a follow up to the Shrub Volume Aggregation.</p>
 <p>The following code is supposed to import the shrub volume data and calculate the average shrub volume for each site, and separately, for each experiment.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="lab2.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(shrub<span class="sc">-</span>volume<span class="sc">-</span>data.csv)</span>
-<span id="cb11-2"><a href="lab2.html#cb11-2" aria-hidden="true" tabindex="-1"></a>shrub_data <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="lab2.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">volume =</span> length <span class="sc">*</span> width <span class="sc">*</span> height) <span class="sc">%&gt;%</span></span>
-<span id="cb11-4"><a href="lab2.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
-<span id="cb11-5"><a href="lab2.html#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_volume=</span> <span class="fu">max</span>(volume))</span>
-<span id="cb11-6"><a href="lab2.html#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="lab2.html#cb11-7" aria-hidden="true" tabindex="-1"></a>shrub_data <span class="sc">%&gt;%</span></span>
-<span id="cb11-8"><a href="lab2.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">volume =</span> length <span class="sc">*</span> width <span class="sc">*</span> height) <span class="sc">%&gt;%</span></span>
-<span id="cb11-9"><a href="lab2.html#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(experiment) <span class="sc">%&gt;%</span></span>
-<span id="cb11-10"><a href="lab2.html#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sumarize</span>(<span class="at">mean_volume =</span> <span class="fu">mean</span>(volume))</span>
-<span id="cb11-11"><a href="lab2.html#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-12"><a href="lab2.html#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co"># This is an example of a comment within code</span></span></code></pre></div>
-<p><strong>HAND IN</strong>:</p>
-<ol style="list-style-type: decimal">
-<li><p>Fix the errors in the code so that it does what it’s supposed to.</p></li>
-<li><p>Add comments <code>#</code> throughout to indicate what you have corrected. A portion of your mark for this question qill be determined by the quality of the comments.</p></li>
-</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="lab2.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(shrub<span class="sc">-</span>volume<span class="sc">-</span>data.csv)</span>
+<span id="cb12-2"><a href="lab2.html#cb12-2" aria-hidden="true" tabindex="-1"></a>shrub_data <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="lab2.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">volume =</span> length <span class="sc">*</span> width <span class="sc">*</span> height) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="lab2.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="lab2.html#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_volume=</span> <span class="fu">max</span>(volume))</span>
+<span id="cb12-6"><a href="lab2.html#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="lab2.html#cb12-7" aria-hidden="true" tabindex="-1"></a>shrub_data <span class="sc">%&gt;%</span></span>
+<span id="cb12-8"><a href="lab2.html#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">volume =</span> length <span class="sc">*</span> width <span class="sc">*</span> height) <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a href="lab2.html#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(experiment) <span class="sc">%&gt;%</span></span>
+<span id="cb12-10"><a href="lab2.html#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sumarize</span>(<span class="at">mean_volume =</span> <span class="fu">mean</span>(volume))</span>
+<span id="cb12-11"><a href="lab2.html#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="lab2.html#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co"># This is an example of a comment within code</span></span></code></pre></div>
+<p><strong>HAND IN. [Q13]</strong> In your R script indicate with a comment that you are starting a new section <code>## Fix the code</code>.</p>
+<p><strong>HAND IN. [Q14]</strong> Copy and paste the code with error into your R script. Fix the errors in the code so that it does what it’s supposed to.</p>
+<p><strong>HAND IN. [Q15]</strong> Add comments <code>#</code> throughout to indicate what you have corrected. A portion of your mark for this question will be determined by the quality of the comments.</p>
 </div>
 <div id="portdatajoins" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Portal Data Joins</h2>
-<p>This exercise also uses the <code>survey.csv</code> you downloaded from last week’s lab, in addition to the files listed below. Make sure that you have downloaded and loaded these data frames into your R.</p>
+<p><strong>HAND IN. [Q16]</strong> In your R script indicate with a comment that you are starting a new section <code>## Portal data joins</code>.</p>
+<p><strong>HAND IN. [Q17]</strong> In your R script add a lines of code that <a href="https://ahurford.github.io/quant-guide-all-courses/data-entry.html#loading-or-importing-data">load</a> and <a href="https://ahurford.github.io/quant-guide-all-courses/rintro.html#variables-and-assignment">assign a variable name</a> to these data sets: <code>species.csv</code> and <code>plot.csv</code>. This exercise also uses <code>surveys.csv</code>, which was loaded during the last question.</p>
+<p><strong>HAND IN. [Q18]</strong> In your R script, add lines of code that use the data sets above, and answer the following questions:</p>
 <ul>
-<li><p><a href="%3Chttps://ndownloader.figshare.com/files/3299483">species.csv</a></p></li>
-<li><p><a href="https://ndownloader.figshare.com/files/3299474">plot.csv</a></p></li>
+<li><p>Use <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#joining"><code>inner_join()</code></a> to create a table that contains the information for both the <code>survey</code> table and the <code>species</code> table. Include both the head and tail output of the new data frame.</p></li>
+<li><p>Use <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#joining"><code>inner_join()</code></a> twice to create a table that contains the information from all three tables. Include both the head and the tail output of the new data frame.</p></li>
+<li><p>Use <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#joining"><code>inner_join()</code></a> and <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data"><code>filter()</code></a> to get a data frame with the information from the <code>survey</code> and <code>plots</code> tables where the <code>plot_type</code> is <code>Control</code>. Include only the tail output of the new data frame.</p></li>
 </ul>
-<p><strong>HAND IN:</strong> Using the data sets above, answering the following question</p>
-<ol style="list-style-type: decimal">
-<li><p>Use <code>inner_join()</code> to create a table that contains the information for both the <code>survey</code> table and the <code>species</code> table. Include both the head and tail output of the new data frame.</p></li>
-<li><p>Use <code>inner_join()</code> twice to create a table that contains the information from all three tables. Include both the head and the tail output of the new data frame.</p></li>
-<li><p>Use <code>inner_join()</code> and <code>filter()</code> to get a data frame with the information from the <code>survey</code> and <code>plots</code> tables where the <code>plot_type</code> is <code>Control</code>. Include only the tail output of the new data frame.</p></li>
-</ol>
 </div>
 <div id="portal-data-dplyr-review" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Portal Data <code>dplyr</code> Review</h2>
 <p>The following questions will be using the same data frames as <a href="lab2.html#portdatajoins">3.4</a> above:<code>surveys.csv</code>, <code>species.csv</code>, and <code>plot.csv</code>.</p>
-<p><strong>HAND IN</strong> We want you to do an analysis comparing the size of individuals on the <code>Control</code> plot to the <code>Long-term Krat Exclosure</code>. <strong>Create a data frame</strong> with the <code>year</code>, <code>genus</code>, <code>species</code>, <code>weight</code>, and <code>plot_type</code> for all cases where the plot type is either <code>Control</code> or <code>Long-term Krat Exclosure</code>. Only include cases where <code>Taxa</code> is <code>Rodent</code>. Remove any records where the <code>weight</code> is missing. Include the head output and the <code>length()</code> of the new data set. entire <em>Hint: it maybe easiest to use the pipe %&gt;% operation to create</em></p>
+<p><strong>HAND IN [Q19]</strong> In your R script indicate with a comment that you are starting a new section <code>## Portal data dplyr review</code>.</p>
+<p><strong>HAND IN [Q20]</strong> In your R script add lines of code to achieve the following:</p>
+<p>We want you to do an analysis comparing the size of individuals on the <code>Control</code> plot to the <code>Long-term Krat Exclosure</code>. <strong>Create a data frame</strong> with the <code>year</code>, <code>genus</code>, <code>species</code>, <code>weight</code>, and <code>plot_type</code> for all cases where the plot type is either <code>Control</code> or <code>Long-term Krat Exclosure</code>. Only include cases where <code>Taxa</code> is <code>Rodent</code>. Remove any records where the <code>weight</code> is missing. Include the head output and the <code>length()</code> of the new data set. entire <em>Hint: it maybe easiest to use the pipe %&gt;% operation to create</em></p>
 </div>
 <div id="extracting-vectors-from-data-frames" class="section level2" number="3.6">
 <h2><span class="header-section-number">3.6</span> Extracting vectors from data frames</h2>
+<p>This section uses functions from Base R (i.e., that didn’t need to be loaded as a package). See <a href="https://ahurford.github.io/quant-guide-all-courses/handling-data.html#extracting-rows-and-columns">here</a> if you are stuck.</p>
+<p><strong>HAND IN [Q21]</strong> In your R script indicate with a comment that you are starting a new section <code>## Extracting vectors from data frames</code>.</p>
+<p><strong>HAND IN [Q22]</strong> In your R script add lines of code to do the following:</p>
 <p>Using the <code>survey.csv</code> (Portal Teaching Database survey table):</p>
-<p><strong>HAND IN</strong> Do the following</p>
-<ol style="list-style-type: decimal">
-<li><p>Use <code>$</code> to extract the weight column into a vector and rename into <code>weight_vector</code></p></li>
+<ul>
+<li><p>Use <code>$</code> to extract the weight column into a vector and rename into <code>weight_vector</code>.</p></li>
 <li><p>Use [,] to extract the month column into a vector and rename into <code>month_vector</code>. <em>Recall that in [x,y] x corresponds to the row, and y corresponds to the column.</em></p></li>
 <li><p>Extract the <code>hindfoot_length</code> column into a vector and calculate the mean <code>hindfoot_length</code> ignoring null values.</p></li>
-</ol>
+</ul>
 </div>
 <div id="building-data-frames-from-vectors" class="section level2" number="3.7">
 <h2><span class="header-section-number">3.7</span> Building data frames from vectors</h2>
+<p>In this section you will make a data frame.</p>
 <p>You have data on the <code>length</code>, <code>width</code>, and <code>height</code> of 10 individuals of the English yew <em>Taxus baccata</em> stored in the following vectors:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="lab2.html#cb12-1" aria-hidden="true" tabindex="-1"></a>length <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.2</span>, <span class="fl">2.1</span>, <span class="fl">2.7</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">2.5</span>, <span class="fl">1.9</span>, <span class="fl">1.1</span>, <span class="fl">3.5</span>, <span class="fl">2.9</span>)</span>
-<span id="cb12-2"><a href="lab2.html#cb12-2" aria-hidden="true" tabindex="-1"></a>width <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.3</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.5</span>, <span class="fl">3.1</span>, <span class="cn">NA</span>, <span class="fl">1.8</span>, <span class="fl">0.5</span>, <span class="fl">2.0</span>, <span class="fl">2.7</span>)</span>
-<span id="cb12-3"><a href="lab2.html#cb12-3" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">9.6</span>, <span class="fl">7.6</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.0</span>, <span class="fl">3.0</span>, <span class="fl">4.5</span>, <span class="fl">2.3</span>, <span class="fl">7.5</span>, <span class="fl">3.2</span>)</span></code></pre></div>
-<p><strong>HAND IN</strong> a data frame that contains these three vectors as columns along with a genus column containing the name <em>Taxus</em> for all rows <strong>and</strong> a species column containing the word <em>baccata</em> for all rows.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="lab2.html#cb13-1" aria-hidden="true" tabindex="-1"></a>length <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.2</span>, <span class="fl">2.1</span>, <span class="fl">2.7</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">2.5</span>, <span class="fl">1.9</span>, <span class="fl">1.1</span>, <span class="fl">3.5</span>, <span class="fl">2.9</span>)</span>
+<span id="cb13-2"><a href="lab2.html#cb13-2" aria-hidden="true" tabindex="-1"></a>width <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.3</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.5</span>, <span class="fl">3.1</span>, <span class="cn">NA</span>, <span class="fl">1.8</span>, <span class="fl">0.5</span>, <span class="fl">2.0</span>, <span class="fl">2.7</span>)</span>
+<span id="cb13-3"><a href="lab2.html#cb13-3" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">9.6</span>, <span class="fl">7.6</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.0</span>, <span class="fl">3.0</span>, <span class="fl">4.5</span>, <span class="fl">2.3</span>, <span class="fl">7.5</span>, <span class="fl">3.2</span>)</span></code></pre></div>
+<p><strong>HAND IN [Q23]</strong> In your R script indicate with a comment that you are starting a new section <code>## Building data frames from vectors</code>.</p>
+<p><strong>HAND IN [Q23]</strong> In your R script add lines of code to make a data frame that contains these three vectors as columns along with a genus column containing the name <em>Taxus</em> for all rows <strong>and</strong> a species column containing the word <em>baccata</em> for all rows. The output you code should produce is below.</p>
+<pre><code>##   Genus species length width height
+## 1 Taxus baccata    2.2   1.3    9.6
+## 2 Taxus baccata    2.1   2.2    7.6
+## 3 Taxus baccata    2.7   1.5    2.2
+## 4 Taxus baccata    3.0   4.5    1.5
+## 5 Taxus baccata    3.1   3.1    4.0
+## 6 Taxus baccata    2.5    NA    3.0</code></pre>
 
 </div>
 </div>
