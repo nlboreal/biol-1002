@@ -219,21 +219,23 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 <span id="cb3-16"><a href="lab2.html#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-17"><a href="lab2.html#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Showing the first six rows with both methods</span></span>
 <span id="cb3-18"><a href="lab2.html#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avg_width)</span></code></pre></div>
-<pre><code>## # A tibble: 4 x 2
+<pre><code>## # A tibble: 5 x 2
 ##    site avg_width
 ##   &lt;int&gt;     &lt;dbl&gt;
 ## 1     1      1.67
 ## 2     2      3.47
 ## 3     3      1.43
-## 4     4     NA</code></pre>
+## 4     4     NA   
+## 5    11      1.2</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="lab2.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avg_width_pipe)</span></code></pre></div>
-<pre><code>## # A tibble: 4 x 2
+<pre><code>## # A tibble: 5 x 2
 ##    site `mean(width)`
 ##   &lt;int&gt;         &lt;dbl&gt;
 ## 1     1          1.67
 ## 2     2          3.47
 ## 3     3          1.43
-## 4     4         NA</code></pre>
+## 4     4         NA   
+## 5    11          1.2</code></pre>
 <p><strong>HAND IN. [Q1]</strong> Add a line of code to your R script where you use <strong>pipes</strong> to calculate the mean <strong>height</strong> of plants in each <em>experiment</em>, and use <code>head()</code> to print the output (the above code is intended as a guide you can modify).</p>
 <p><strong>HAND IN. [Q2]</strong> Add a line of code to your R script where you use <strong>pipes</strong> to calculate the maximum, <code>max()</code>, <strong>height</strong> of a plant at each <strong>site</strong> and use <code>head()</code> to print the output.</p>
 </div>
