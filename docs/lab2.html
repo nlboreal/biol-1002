@@ -234,8 +234,8 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 ## 2     2          3.47
 ## 3     3          1.43
 ## 4     4         NA</code></pre>
-<p><strong>HAND IN. [Q1]</strong> Add a line of code to your R script where you use <em>pipes</em> to calculate the mean <em>height</em> of plants in each <em>experiment</em>, and use <code>head()</code> to print the output (the above code is intended as a guide you can modify).</p>
-<p><strong>HAND IN. [Q2]</strong> Add a line of code to your R script where you use <em>pipes</em> to calculate the maximum, <code>max()</code>, <em>height</em> of a plant at each <em>site</em> and use <code>head()</code> to print the output.</p>
+<p><strong>HAND IN. [Q1]</strong> Add a line of code to your R script where you use <strong>pipes</strong> to calculate the mean <strong>height</strong> of plants in each <em>experiment</em>, and use <code>head()</code> to print the output (the above code is intended as a guide you can modify).</p>
+<p><strong>HAND IN. [Q2]</strong> Add a line of code to your R script where you use <strong>pipes</strong> to calculate the maximum, <code>max()</code>, <strong>height</strong> of a plant at each <strong>site</strong> and use <code>head()</code> to print the output.</p>
 </div>
 <div id="shrub-volume-join" class="section level3" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Shrub Volume Join</h3>
@@ -251,8 +251,15 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 <li><p>View the first six rows of the data <code>shrub-volume-data.csv</code> (note that in the above code this was assigned the variable name <code>shrub_dims</code>).</p></li>
 </ul>
 <p><strong>HAND IN. [Q4]</strong> In your R Script, add a commented out line of code where you provide the name of columns that appear in both data sets.</p>
-<p><strong>HAND IN. [Q5]</strong> In your R Script, add a commented out line of code where you provide the <em>values</em> of the column with the same name that appear in both data sets.</p>
-<p><strong>HAND IN. [Q6]</strong> In your R Script, add a line of code where you use the <code>inner_join()</code> function to combine the sites data with the shrub dimensions, <code>shrub_dims</code> data (note you may have given a different variable name to your import of <code>shrub-volume-data.csv</code>).</p>
+<p><strong>HAND IN. [Q5]</strong> In your R Script, add a commented out line of code where you provide the <strong>values</strong>, from the column with the same name, that appear in both data sets.</p>
+<p><strong>HAND IN. [Q6]</strong> In your R Script, add a line of code where you use the <code>inner_join()</code> function to combine the sites data with the shrub dimensions, <code>shrub_dims</code> data, to produce:</p>
+<pre><code>##   site experiment length width height manipulation
+## 1    1          1    2.2   1.3    9.6      control
+## 2    1          2    2.1   2.2    7.6         burn
+## 3    1          3    2.7   1.5    2.2      rainout
+## 4    2          1    3.0   4.5    1.5      control
+## 5    2          2    3.1   3.1    4.0         burn
+## 6    2          3    2.5   2.8    3.0      rainout</code></pre>
 <p><strong>HAND IN. [Q7]</strong> In your R Script, add lines of code to import the sites data, <code>shrub-to-volume-sites</code>, and then combine these data with both the data on shrub dimensions and the experiment data to produce a <strong>single data frame that contains all of the data.</strong> Hand in the <code>tail()</code> output of the new data frame. <em>Hint: you’ve just created a single data frame that contains both the shrub and experimental data.</em></p>
 </div>
 </div>
@@ -260,12 +267,13 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 <h2><span class="header-section-number">3.2</span> Portal Data Aggregation</h2>
 <p>This exercise uses the <code>survey.csv</code> (Portal Teaching Database survey table) file you downloaded for last week’s lab. If the <code>survey.csv</code> is not in your workspace download it from last week’s Brightspace folder.</p>
 <p>In this section you will be using the <code>group_by()</code>, <code>summarize()</code>, <code>tally()</code> and <code>filter()</code> functions. More information about each of the functions can be found under the Help Tab or through the <code>?function</code> and <code>??function</code> commands. Examples for how to use the <code>?</code> and <code>??</code> command are below.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="lab2.html#cb7-1" aria-hidden="true" tabindex="-1"></a>?group_by</span>
-<span id="cb7-2"><a href="lab2.html#cb7-2" aria-hidden="true" tabindex="-1"></a>??group_by</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="lab2.html#cb8-1" aria-hidden="true" tabindex="-1"></a>?group_by</span>
+<span id="cb8-2"><a href="lab2.html#cb8-2" aria-hidden="true" tabindex="-1"></a>??group_by</span></code></pre></div>
 <p><em>Hint</em>: For this section it maybe useful to use pipe <code>%&gt;%</code> operations and the <code>tally</code> function. For example, I can tally the number of individuals that either identify as <code>M</code> or <code>F</code> in the sex column.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="lab2.html#cb8-1" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a href="lab2.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="lab2.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="lab2.html#cb9-1" aria-hidden="true" tabindex="-1"></a>survey <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;lab_data/surveys.csv&quot;</span>)</span>
+<span id="cb9-2"><a href="lab2.html#cb9-2" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="lab2.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="lab2.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   sex       n
 ##   &lt;chr&gt; &lt;int&gt;
@@ -283,18 +291,18 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 <h2><span class="header-section-number">3.3</span> Fix the code</h2>
 <p>This section is a follow up to the Shrub Volume Aggregation.</p>
 <p>The following code is supposed to import the shrub volume data and calculate the average shrub volume for each site, and separately, for each experiment.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="lab2.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(shrub<span class="sc">-</span>volume<span class="sc">-</span>data.csv)</span>
-<span id="cb10-2"><a href="lab2.html#cb10-2" aria-hidden="true" tabindex="-1"></a>shrub_data <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a href="lab2.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">volume =</span> length <span class="sc">*</span> width <span class="sc">*</span> height) <span class="sc">%&gt;%</span></span>
-<span id="cb10-4"><a href="lab2.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
-<span id="cb10-5"><a href="lab2.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_volume=</span> <span class="fu">max</span>(volume))</span>
-<span id="cb10-6"><a href="lab2.html#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="lab2.html#cb10-7" aria-hidden="true" tabindex="-1"></a>shrub_data <span class="sc">%&gt;%</span></span>
-<span id="cb10-8"><a href="lab2.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">volume =</span> length <span class="sc">*</span> width <span class="sc">*</span> height) <span class="sc">%&gt;%</span></span>
-<span id="cb10-9"><a href="lab2.html#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(experiment) <span class="sc">%&gt;%</span></span>
-<span id="cb10-10"><a href="lab2.html#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sumarize</span>(<span class="at">mean_volume =</span> <span class="fu">mean</span>(volume))</span>
-<span id="cb10-11"><a href="lab2.html#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="lab2.html#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># This is an example of a comment within code</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="lab2.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(shrub<span class="sc">-</span>volume<span class="sc">-</span>data.csv)</span>
+<span id="cb11-2"><a href="lab2.html#cb11-2" aria-hidden="true" tabindex="-1"></a>shrub_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="lab2.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">volume =</span> length <span class="sc">*</span> width <span class="sc">*</span> height) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="lab2.html#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="lab2.html#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_volume=</span> <span class="fu">max</span>(volume))</span>
+<span id="cb11-6"><a href="lab2.html#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="lab2.html#cb11-7" aria-hidden="true" tabindex="-1"></a>shrub_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="lab2.html#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">volume =</span> length <span class="sc">*</span> width <span class="sc">*</span> height) <span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="lab2.html#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(experiment) <span class="sc">%&gt;%</span></span>
+<span id="cb11-10"><a href="lab2.html#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sumarize</span>(<span class="at">mean_volume =</span> <span class="fu">mean</span>(volume))</span>
+<span id="cb11-11"><a href="lab2.html#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="lab2.html#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co"># This is an example of a comment within code</span></span></code></pre></div>
 <p><strong>HAND IN</strong>:</p>
 <ol style="list-style-type: decimal">
 <li><p>Fix the errors in the code so that it does what it’s supposed to.</p></li>
@@ -333,9 +341,9 @@ You are to hand in a <code>.R</code> file, formatted as shown in <a href="https:
 <div id="building-data-frames-from-vectors" class="section level2" number="3.7">
 <h2><span class="header-section-number">3.7</span> Building data frames from vectors</h2>
 <p>You have data on the <code>length</code>, <code>width</code>, and <code>height</code> of 10 individuals of the English yew <em>Taxus baccata</em> stored in the following vectors:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="lab2.html#cb11-1" aria-hidden="true" tabindex="-1"></a>length <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.2</span>, <span class="fl">2.1</span>, <span class="fl">2.7</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">2.5</span>, <span class="fl">1.9</span>, <span class="fl">1.1</span>, <span class="fl">3.5</span>, <span class="fl">2.9</span>)</span>
-<span id="cb11-2"><a href="lab2.html#cb11-2" aria-hidden="true" tabindex="-1"></a>width <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.3</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.5</span>, <span class="fl">3.1</span>, <span class="cn">NA</span>, <span class="fl">1.8</span>, <span class="fl">0.5</span>, <span class="fl">2.0</span>, <span class="fl">2.7</span>)</span>
-<span id="cb11-3"><a href="lab2.html#cb11-3" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">9.6</span>, <span class="fl">7.6</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.0</span>, <span class="fl">3.0</span>, <span class="fl">4.5</span>, <span class="fl">2.3</span>, <span class="fl">7.5</span>, <span class="fl">3.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="lab2.html#cb12-1" aria-hidden="true" tabindex="-1"></a>length <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.2</span>, <span class="fl">2.1</span>, <span class="fl">2.7</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">2.5</span>, <span class="fl">1.9</span>, <span class="fl">1.1</span>, <span class="fl">3.5</span>, <span class="fl">2.9</span>)</span>
+<span id="cb12-2"><a href="lab2.html#cb12-2" aria-hidden="true" tabindex="-1"></a>width <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.3</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.5</span>, <span class="fl">3.1</span>, <span class="cn">NA</span>, <span class="fl">1.8</span>, <span class="fl">0.5</span>, <span class="fl">2.0</span>, <span class="fl">2.7</span>)</span>
+<span id="cb12-3"><a href="lab2.html#cb12-3" aria-hidden="true" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">9.6</span>, <span class="fl">7.6</span>, <span class="fl">2.2</span>, <span class="fl">1.5</span>, <span class="fl">4.0</span>, <span class="fl">3.0</span>, <span class="fl">4.5</span>, <span class="fl">2.3</span>, <span class="fl">7.5</span>, <span class="fl">3.2</span>)</span></code></pre></div>
 <p><strong>HAND IN</strong> a data frame that contains these three vectors as columns along with a genus column containing the name <em>Taxus</em> for all rows <strong>and</strong> a species column containing the word <em>baccata</em> for all rows.</p>
 
 </div>

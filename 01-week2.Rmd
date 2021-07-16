@@ -67,9 +67,9 @@ head(avg_width)
 head(avg_width_pipe)
 ```
 
-**HAND IN. [Q1]** Add a line of code to your R script where you use *pipes* to calculate the mean *height* of plants in each *experiment*, and use `head()` to print the output (the above code is intended as a guide you can modify).
+**HAND IN. [Q1]** Add a line of code to your R script where you use **pipes** to calculate the mean **height** of plants in each *experiment*, and use `head()` to print the output (the above code is intended as a guide you can modify).
 
-**HAND IN. [Q2]** Add a line of code to your R script where you use *pipes* to calculate the maximum, `max()`, *height* of a plant at each *site* and use `head()` to print the output.
+**HAND IN. [Q2]** Add a line of code to your R script where you use **pipes** to calculate the maximum, `max()`, **height** of a plant at each **site** and use `head()` to print the output.
 
 ### Shrub Volume Join 
 
@@ -90,9 +90,20 @@ Add lines of code to your R Script where you:
 
 **HAND IN. [Q4]** In your R Script, add a commented out line of code where you provide the name of columns that appear in both data sets.
 
-**HAND IN. [Q5]** In your R Script, add a commented out line of code where you provide the *values* of the column with the same name that appear in both data sets.
+**HAND IN. [Q5]** In your R Script, add a commented out line of code where you provide the **values**, from the column with the same name, that appear in both data sets.
 
-**HAND IN. [Q6]** In your R Script, add a line of code where you use the `inner_join()` function to combine the sites data with the shrub dimensions, `shrub_dims` data (note you may have given a different variable name to your import of `shrub-volume-data.csv`). 
+**HAND IN. [Q6]** In your R Script, add a line of code where you use the `inner_join()` function to combine the sites data with the shrub dimensions, `shrub_dims` data, to produce:
+
+```{r, echo=F}
+##2. Shrub Volume Join
+
+#import the experiments data and combine it with the shrub dimensions data
+
+experiments <- read.csv("lab_data//shrub-volume-experiments.csv")
+shrub_combined <- inner_join(shrub_dims, experiments, by = "experiment")
+print(head(shrub_combined))
+```
+
 
 **HAND IN. [Q7]** In your R Script, add lines of code to import the sites data, `shrub-to-volume-sites`, and then combine these data with both the data on shrub dimensions and the experiment data to produce a **single data frame that contains all of the data.** Hand in the `tail()` output of the new data frame.  *Hint: you've just created a single data frame that contains both the shrub and experimental data.*
 
@@ -123,6 +134,7 @@ In this section you will be using the `group_by()`, `summarize()`, `tally()` and
 *Hint*: For this section it maybe useful to use pipe `%>%` operations and the `tally` function. For example, I can tally the number of individuals that either identify as `M` or `F` in the sex column.
 
 ```{r}
+survey <- read.csv("lab_data/surveys.csv")
 survey %>% 
   group_by(sex) %>%
   tally()

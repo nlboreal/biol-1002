@@ -106,7 +106,7 @@ You will need this command in your R script or you will not be able to complete 
 
 **HAND IN. [Q6]** Add a line of code to your R script, where you use the [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) function to show all entries with plants with length greater than 4 cm and width greater then 2cm.
 
-**HAND IN. [Q7]** Add a line of code to your R script, where you use the [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) function to filter the data to only include plants from experiment 1 *or* 2.
+**HAND IN. [Q7]** Add a line of code to your R script, where you use the [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) function to filter the data to only include plants from experiment 1 **or** 2.
 
 **HAND IN. [Q8]** Add a line of code to your R script  where you use the `filter()` function [remove the rows with `NA`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#removing-na-entries-in-data) from your data.
 
@@ -228,7 +228,7 @@ In your R Script, indicate with a comment that you are starting a new section `#
 
 **HAND IN. [Q19]**  Add lines of code to your R script where you use the [`select()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#selecting-a-column) function to create a new data frame called `survey_new_2` that only contains the columns `year`, `month`, `day`, and `species_id` in that order.
 
-**HAND IN. [Q20]**   Add lines of code to your R script where you use [`mutate()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#adding-a-new-column) to calculate `weight_kg`, which is weight in **kilograms**, and add this new column to `survey_new_2`, where the result is named `survey_new_3`. The weight in `survey_new_2` was given in grams, so you will need to convert `weight` into kilograms. (*Recall that 1 g = 0.001 kg.*).
+**HAND IN. [Q20]**   Add lines of code to your R script where you use [`mutate()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#adding-a-new-column) to calculate `weight_kg`, which is weight in **kilograms**, and add this new column to `survey_new_2`, where the result is named `survey_new_3`. The weight in `survey_new_2` was given in grams, so you will need to convert `weight` into kilograms. (**Recall that 1 g = 0.001 kg.**).
 
 **HAND IN. [Q21]**  Add lines of code to your R script, where you use [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) to make a new data frame `survey_new_4` which is the same as `survery_new_3` except that only the rows with `species_id =="SH"` are included.
 
