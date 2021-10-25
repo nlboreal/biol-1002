@@ -226,7 +226,7 @@ In your R Script, indicate with a comment that you are starting a new section `#
 
 **HAND IN. [Q18]** Add lines of code to your R script where you use `filter()` to create a new data frame `survey_new` where you have [removed all rows with `NA`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#removing-na-entries-in-data) in the `weight` column.
 
-**HAND IN. [Q19]**  Add lines of code to your R script where you use the [`select()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#selecting-a-column) function to create a new data frame called `survey_new_2` that only contains the columns `year`, `month`, `day`, and `species_id` in that order.
+**HAND IN. [Q19]**  Add lines of code to your R script where you use the [`select()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#selecting-a-column) function to create a new data frame called `survey_new_2` that only contains the columns `year`, `month`, `day`, `species_id` and `weight` in that order.
 
 **HAND IN. [Q20]**   Add lines of code to your R script where you use [`mutate()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#adding-a-new-column) to calculate `weight_kg`, which is weight in **kilograms**, and add this new column to `survey_new_2`, where the result is named `survey_new_3`. The weight in `survey_new_2` was given in grams, so you will need to convert `weight` into kilograms. (**Recall that 1 g = 0.001 kg.**).
 
