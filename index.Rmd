@@ -57,7 +57,7 @@ In addition, these labs are based on _Week 3: Data in Tables_ (PART I) and _Week
 
 - Review [best practices](https://ahurford.github.io/quant-guide-all-courses/style.html) for guidance on how to organize your files.
 
-- Download, to an appropriate folder, the following .csv files from Brightspace:
+- Download, to an appropriate folder, the following .csv files from Brightspace: You can also access these data from [here](https://github.com/jbaafi/quant-guide-data/tree/main/BIOL1002-data).
 
     -   shrub-volume-data.csv
 
