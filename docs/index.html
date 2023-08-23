@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>BIOL 1002: Principles of Biology 1002</title>
   <meta name="description" content="BIOL 1002: Principles of Biology 1002" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="BIOL 1002: Principles of Biology 1002" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -49,24 +48,24 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -86,13 +85,13 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +104,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +118,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 </head>
 
@@ -133,15 +136,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Before coming to the labs</a></li>
-<li class="chapter" data-level="2" data-path="part-i-managing-biological-data.html"><a href="part-i-managing-biological-data.html"><i class="fa fa-check"></i><b>2</b> PART I: Managing biological data</a><ul>
+<li class="chapter" data-level="2" data-path="part-i-managing-biological-data.html"><a href="part-i-managing-biological-data.html"><i class="fa fa-check"></i><b>2</b> PART I: Managing biological data</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="part-i-managing-biological-data.html"><a href="part-i-managing-biological-data.html#shrub-volume-data-basic"><i class="fa fa-check"></i><b>2.1</b> Shrub Volume Data Basic</a></li>
 <li class="chapter" data-level="2.2" data-path="part-i-managing-biological-data.html"><a href="part-i-managing-biological-data.html#mean-maximum-monthly-temperature-in-bay-despoir"><i class="fa fa-check"></i><b>2.2</b> Mean maximum monthly temperature in Bay D’Espoir</a></li>
 <li class="chapter" data-level="2.3" data-path="part-i-managing-biological-data.html"><a href="part-i-managing-biological-data.html#bird-banding"><i class="fa fa-check"></i><b>2.3</b> Bird Banding</a></li>
 <li class="chapter" data-level="2.4" data-path="part-i-managing-biological-data.html"><a href="part-i-managing-biological-data.html#portal-data-manipulation"><i class="fa fa-check"></i><b>2.4</b> Portal Data Manipulation</a></li>
 <li class="chapter" data-level="2.5" data-path="part-i-managing-biological-data.html"><a href="part-i-managing-biological-data.html#using-pipes"><i class="fa fa-check"></i><b>2.5</b> Using pipes</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="lab2.html"><a href="lab2.html"><i class="fa fa-check"></i><b>3</b> PART II: Managing biological data</a><ul>
-<li class="chapter" data-level="3.1" data-path="lab2.html"><a href="lab2.html#grouping-and-joining-data"><i class="fa fa-check"></i><b>3.1</b> Grouping and Joining Data</a><ul>
+<li class="chapter" data-level="3" data-path="lab2.html"><a href="lab2.html"><i class="fa fa-check"></i><b>3</b> PART II: Managing biological data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lab2.html"><a href="lab2.html#grouping-and-joining-data"><i class="fa fa-check"></i><b>3.1</b> Grouping and Joining Data</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="lab2.html"><a href="lab2.html#shrub-volume-aggregation"><i class="fa fa-check"></i><b>3.1.1</b> Shrub Volume Aggregation</a></li>
 <li class="chapter" data-level="3.1.2" data-path="lab2.html"><a href="lab2.html#shrub-volume-join"><i class="fa fa-check"></i><b>3.1.2</b> Shrub Volume Join</a></li>
 </ul></li>
@@ -173,8 +179,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1 class="title">BIOL 1002: Principles of Biology 1002</h1>
 <p class="author"><em>Jake Prosser, Yolanda Wiersma, Amy Hurford</em></p>
 </div>
-<div id="before-coming-to-the-labs" class="section level1">
-<h1><span class="header-section-number">1</span> Before coming to the labs</h1>
+<div id="before-coming-to-the-labs" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Before coming to the labs<a href="index.html#before-coming-to-the-labs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><strong>Overview:</strong> In these two computer labs, we will be building on the R skills you learned in BIOL 1001. We will be focusing on manipulating and organizing data in tables, and learn a useful package called <a href="https://dplyr.tidyverse.org/">dplyr</a> (pronounced “d-plier”)</p>
 <p>Install:</p>
 <ul>
