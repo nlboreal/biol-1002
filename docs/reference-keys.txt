@@ -15,3 +15,4 @@ portdatajoins
 portal-data-dplyr-review
 extracting-vectors-from-data-frames
 building-data-frames-from-vectors
+before-coming-to-the-tutorials

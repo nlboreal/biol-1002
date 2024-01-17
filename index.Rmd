@@ -7,7 +7,7 @@ output:
   bookdown::gitbook: default
   #bookdown::pdf_book: default
 ---
-# Before coming to the labs
+# Before coming to the tutorials
 
 ```{r, include=F, echo=F}
 # additional information not include in on the website
@@ -16,7 +16,7 @@ library(dplyr)
 ```
 
 
-**Overview:** In these two computer labs, we will be building on the R skills you learned in BIOL 1001. We will be focusing on manipulating and organizing data in tables, and learn a useful package called [dplyr](https://dplyr.tidyverse.org/) (pronounced "d-plier")
+**Overview:** In these two tutorials, we will be building on the R skills you learned in BIOL 1001. We will be focusing on manipulating and organizing data in tables, and learn a useful package called [dplyr](https://dplyr.tidyverse.org/) (pronounced "d-plier")
 
 
 Install:
@@ -41,9 +41,9 @@ Read:
 
 When using R, you have many ways to get [help](https://ahurford.github.io/quant-guide-all-courses/help.html).
 
-In addition, these labs are based on _Week 3: Data in Tables_ (PART I) and _Week 4: Grouping & Joining Data_ (PART II) of the online course [Data Carpentry for Biologists](https://datacarpentry.org/semester-biology/schedule/) by Dr. Ethan White. If you are not sure how to execute a particular command, you can refer to the _Lecture_ material on [Dr. White's website](https://datacarpentry.org/semester-biology/lectures/R-data/)</u> and/or his [instructional videos](https://datacarpentry.org/semester-biology/lectures/R-data/) that go with the relevant lessons. The example data in the lecture material and videos is different from the data you use in the exercise.
+In addition, these tutorials are based on _Week 3: Data in Tables_ (PART I) and _Week 4: Grouping & Joining Data_ (PART II) of the online course [Data Carpentry for Biologists](https://datacarpentry.org/semester-biology/schedule/) by Dr. Ethan White. If you are not sure how to execute a particular command, you can refer to the _Lecture_ material on [Dr. White's website](https://datacarpentry.org/semester-biology/lectures/R-data/)</u> and/or his [instructional videos](https://datacarpentry.org/semester-biology/lectures/R-data/) that go with the relevant lessons. The example data in the lecture material and videos is different from the data you use in the exercise.
 
-**After these labs you should be able to:**
+**After these tutorials you should be able to:**
 
 - install packages and load data,
 -   understand the data manipulation functions of `dplyr`,
