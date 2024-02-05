@@ -98,11 +98,11 @@ You will need this command in your R script or you will not be able to complete 
 
 **HAND IN. [Q2]** Add a line of code to your R script where you use the [`mutate()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#adding-a-new-column) function to create a column called `area`. (Reminder, the area of a rectangle is equal to the length * width).
 
-**HAND IN. [Q3]** Add a commented out line of code to your R script that answers the following question: does the `arrange()` function: (a) reorder all the rows in `ShrubData` based on the ascending order of the value in the `width` column, or (b) reorder only the `width` column? (for example, write `# Q3. (a)` in your R script if your answer is (a).)
+**HAND IN. [Q3]** Add a commented out line of code to your R script that answers the following question: does the `arrange(ShrubData, width)` function: (a) reorder all the rows in `ShrubData` based on the ascending order of the value in the `width` column, or (b) reorder only the `width` column? (for example, write `# Q3. (a)` in your R script if your answer is (a).)
 
 **HAND IN. [Q4]** Add a line of code to your R script where you use the [`arrange()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#sorting-the-data) function to sort the data based on the `length` column.
 
-**HAND IN. [Q5]** Add a line of code to your R script, where you use the [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) function to filter the data to only include plants with length longer than 5 cm.
+**HAND IN. [Q5]** Add a line of code to your R script, where you use the [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) function to filter the data to only include plants with length longer than 4 cm.
 
 **HAND IN. [Q6]** Add a line of code to your R script, where you use the [`filter()`](https://ahurford.github.io/quant-guide-all-courses/handling-data.html#filtering-data) function to show all entries with plants with length greater than 4 cm and width greater then 2cm.
 
